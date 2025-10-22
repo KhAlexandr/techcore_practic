@@ -8,3 +8,9 @@ class Book:
 
     def __eq__(self, other):
         return self.title == other.title and self.author == other.author
+
+
+class Ebook(Book):
+    def __init__(self, title, author, file_size):
+        super().__init__(title, author)
+        self.file_size = file_size
