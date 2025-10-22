@@ -23,3 +23,8 @@ def filter_students(s):
 
 
 print(filter_students(students))
+
+
+filtered_students = [
+    student for student in students if student["avg_grade"] > 4.0
+]
