@@ -12,6 +12,8 @@ def read_file(file):
         return None
     except Exception as e:
         logging.error(f"Произошла ошибка: {e}")
+    finally:
+        print("Done")
 
 
 print(read_file("exeptions.txt"))
