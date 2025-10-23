@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-433: Задача - Контекстные менеджеры (with)" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/TASK-431" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;KhAlexandr&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:KhAlexandr/techcore_practic.git&quot;,
+    &quot;accountId&quot;: &quot;36c11373-232b-4299-8546-dfd498f35b78&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="34PaMZM1nSS0l8C9yJVHJGCdzAx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests in gil_esse.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.book.executor&quot;: &quot;Run&quot;,
+    &quot;Python.calc.executor&quot;: &quot;Run&quot;,
+    &quot;Python.decorators.executor&quot;: &quot;Run&quot;,
+    &quot;Python.exeption.executor&quot;: &quot;Run&quot;,
+    &quot;Python.find_error.executor&quot;: &quot;Run&quot;,
+    &quot;Python.functions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gil_esse.executor&quot;: &quot;Run&quot;,
+    &quot;Python.json_file.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.requests_file.executor&quot;: &quot;Run&quot;,
+    &quot;Python.students.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#2 on feature/TASK-433&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.26830.99" />
+        <option value="bundled-python-sdk-164cda30dcd9-0af03a5fa574-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26830.99" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="" />
+      <created>1741958705034</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741958705034</updated>
+      <workItem from="1741958706916" duration="195000" />
+      <workItem from="1741959071433" duration="724000" />
+      <workItem from="1761117614492" duration="11646000" />
+      <workItem from="1761135704560" duration="3205000" />
+      <workItem from="1761188764095" duration="8000" />
+    </task>
+    <task id="LOCAL-00001" summary="TASK-431: Задача - Настройка виртуального окружения">
+      <option name="closed" value="true" />
+      <created>1761117907281</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1761117907281</updated>
+    </task>
+    <task id="LOCAL-00002" summary="TASK-431: Задача - Базовый синтаксис и типы(Калькулятор)">
+      <option name="closed" value="true" />
+      <created>1761118917111</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1761118917111</updated>
+    </task>
+    <task id="LOCAL-00003" summary="TASK-431: Задача - Структуры данных (List и Dict)">
+      <option name="closed" value="true" />
+      <created>1761119641181</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1761119641181</updated>
+    </task>
+    <task id="LOCAL-00004" summary="TASK-431: List Comprehensions (Списковые включения)">
+      <option name="closed" value="true" />
+      <created>1761119826618</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1761119826618</updated>
+    </task>
+    <task id="LOCAL-00005" summary="TASK-431: Задача - Функции и Области видимости">
+      <option name="closed" value="true" />
+      <created>1761120864229</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1761120864229</updated>
+    </task>
+    <task id="LOCAL-00006" summary="TASK-431: Задача - Модули и Пакеты">
+      <option name="closed" value="true" />
+      <created>1761121145302</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1761121145302</updated>
+    </task>
+    <task id="LOCAL-00007" summary="TASK-431: Задача - Работа с файлами и JSON">
+      <option name="closed" value="true" />
+      <created>1761121745452</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1761121745452</updated>
+    </task>
+    <task id="LOCAL-00008" summary="TASK-431: Задача - Обработка исключений (try/except)">
+      <option name="closed" value="true" />
+      <created>1761122311895</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1761122311895</updated>
+    </task>
+    <task id="LOCAL-00009" summary="TASK-431: Задача - Библиотека requests">
+      <option name="closed" value="true" />
+      <created>1761123464258</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1761123464258</updated>
+    </task>
+    <task id="LOCAL-00010" summary="TASK-431: Задача - Отладка (pdb или IDE): до нахождения ошибки">
+      <option name="closed" value="true" />
+      <created>1761124318161</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1761124318161</updated>
+    </task>
+    <task id="LOCAL-00011" summary="TASK-431: Задача - Отладка (pdb или IDE): нашел ошибку через точку в IDE(PyCharm)">
+      <option name="closed" value="true" />
+      <created>1761124374706</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1761124374706</updated>
+    </task>
+    <task id="LOCAL-00012" summary="TASK-433: Задача - Классы и __init__">
+      <option name="closed" value="true" />
+      <created>1761125467852</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1761125467852</updated>
+    </task>
+    <task id="LOCAL-00013" summary="TASK-433: Задача - &quot;Магические&quot; методы (Dunder)">
+      <option name="closed" value="true" />
+      <created>1761126053980</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1761126053980</updated>
+    </task>
+    <task id="LOCAL-00014" summary="TASK-433: Задача - Наследование">
+      <option name="closed" value="true" />
+      <created>1761126217847</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1761126217847</updated>
+    </task>
+    <task id="LOCAL-00015" summary="TASK-433: Задача - Декораторы (@decorator)">
+      <option name="closed" value="true" />
+      <created>1761127183150</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1761127183150</updated>
+    </task>
+    <task id="LOCAL-00016" summary="TASK-433: Задача - Генераторы (yield)">
+      <option name="closed" value="true" />
+      <created>1761131704973</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1761131704973</updated>
+    </task>
+    <task id="LOCAL-00017" summary="TASK-433: fix/ Обработка исключений (try/except)">
+      <option name="closed" value="true" />
+      <created>1761131803874</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1761131803874</updated>
+    </task>
+    <task id="LOCAL-00018" summary="TASK-433: fix/ Настройка виртуального окружения">
+      <option name="closed" value="true" />
+      <created>1761135566036</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1761135566036</updated>
+    </task>
+    <task id="LOCAL-00019" summary="TASK-433: Задача - Контекстные менеджеры (with)">
+      <option name="closed" value="true" />
+      <created>1761136072178</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1761136072178</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="TASK-431: Задача - Настройка виртуального окружения" />
+    <MESSAGE value="TASK-431: Задача - Базовый синтаксис и типы(Калькулятор)" />
+    <MESSAGE value="TASK-431: Задача - Структуры данных (List и Dict)" />
+    <MESSAGE value="TASK-431: Задача - List Comprehensions (Списковые включения)" />
+    <MESSAGE value="TASK-431: Задача - List Comprehensions (Списковые включения)" />
+    <MESSAGE value="TASK-431: Задача - Функции и Области видимости" />
+    <MESSAGE value="TASK-431: Задача - Модули и Пакеты" />
+    <MESSAGE value="TASK-431: Задача - Работа с файлами и JSON" />
+    <MESSAGE value="TASK-431: Задача - Обработка исключений (try/except)" />
+    <MESSAGE value="TASK-431: Задача - Библиотека requests" />
+    <MESSAGE value="TASK-431: Задача - Отладка (pdb или IDE): до нахождения ошибки" />
+    <MESSAGE value="TASK-431: Задача - Отладка (pdb или IDE): нашел ошибку через точку в IDE(PyCharm)" />
+    <MESSAGE value="TASK-433: Задача - Классы и __init__" />
+    <MESSAGE value="TASK-433: Задача - &quot;Магические&quot; методы (Dunder)" />
+    <MESSAGE value="TASK-433: Задача - Наследование" />
+    <MESSAGE value="TASK-433: Задача - Декораторы (@decorator)" />
+    <MESSAGE value="TASK-433: Задача - Генераторы (yield)" />
+    <MESSAGE value="TASK-433: fix/ Обработка исключений (try/except)" />
+    <MESSAGE value="TASK-433: fix/ Настройка виртуального окружения" />
+    <MESSAGE value="TASK-433: Задача - Контекстные менеджеры (with)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-433: Задача - Контекстные менеджеры (with)" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/techcore_practic$calc.coverage" NAME="calc Coverage Results" MODIFIED="1761118807648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$json_file.coverage" NAME="json_file Coverage Results" MODIFIED="1761121685605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$decorators.coverage" NAME="decorators Coverage Results" MODIFIED="1761127132558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$gil_esse.coverage" NAME="gil_esse Coverage Results" MODIFIED="1761138219997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$functions.coverage" NAME="functions Coverage Results" MODIFIED="1761120545753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$requests_file.coverage" NAME="requests_file Coverage Results" MODIFIED="1761123048963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$find_error.coverage" NAME="find_error Coverage Results" MODIFIED="1761124327795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$main.coverage" NAME="main Coverage Results" MODIFIED="1761121045307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />
+    <SUITE FILE_PATH="coverage/techcore_practic$students.coverage" NAME="students Coverage Results" MODIFIED="1761119771021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$exeption.coverage" NAME="exeption Coverage Results" MODIFIED="1761122180940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$book.coverage" NAME="book Coverage Results" MODIFIED="1761125947616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$.coverage" NAME=" Coverage Results" MODIFIED="1761137956857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
