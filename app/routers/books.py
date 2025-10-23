@@ -1,6 +1,6 @@
 import asyncio
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 
 from app.books.models import BookScheme
 
@@ -29,4 +29,8 @@ async def create_book(book: BookScheme, db: dict = Depends(get_db_session)):
 @router.get("/{book_id}")
 async def get_book(book_id: int):
     await asyncio.sleep(1)
+    if book_id not in books_db:
+        raise HTTPException(
+            status_code=404, detail="Book not found"
+        )
     return {"id": book_id, **books_db[book_id].dict()}
