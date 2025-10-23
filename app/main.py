@@ -1,3 +1,5 @@
+import asyncio
+
 from fastapi import FastAPI
 
 from app.routers import books
@@ -6,7 +8,8 @@ app = FastAPI()
 
 
 @app.get("/")
-def hello():
+async def hello():
+    await asyncio.sleep(1)
     return {"message": "Hello, World"}
 
 

@@ -1,3 +1,5 @@
+import asyncio
+
 from fastapi import APIRouter, Depends
 
 from app.books.models import BookScheme
@@ -16,13 +18,15 @@ def get_db_session():
 
 
 @router.post("/")
-def create_book(book: BookScheme, db: dict = Depends(get_db_session)):
+async def create_book(book: BookScheme, db: dict = Depends(get_db_session)):
     global current_id
     db[current_id] = book
     current_id += 1
+    await asyncio.sleep(1)
     return {"id": current_id - 1, **book.dict()}
 
 
 @router.get("/{book_id}")
-def get_book(book_id: int):
+async def get_book(book_id: int):
+    await asyncio.sleep(1)
     return {"id": book_id, **books_db[book_id].dict()}
