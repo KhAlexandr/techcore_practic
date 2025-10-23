@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 
 from books.models import BookScheme
 
@@ -14,10 +14,15 @@ books_db = {}
 current_id = 1
 
 
+def get_db_session():
+    session = books_db
+    yield session
+
+
 @app.post("/books")
-def post_book(book: BookScheme):
+def create_book(book: BookScheme, db: dict = Depends(get_db_session)):
     global current_id
-    books_db[current_id] = book
+    db[current_id] = book
     current_id += 1
     return {"id": current_id - 1, **book.dict()}
 
