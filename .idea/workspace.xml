@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-433: Задача - multiprocessing.Process">
-      <change afterPath="$PROJECT_DIR$/multiprocessin_pool.py" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-433: Задача - multiprocessing.Pool">
+      <change afterPath="$PROJECT_DIR$/multiprocessing_queue.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +61,9 @@
     "Python.gil_esse.executor": "Run",
     "Python.json_file.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.multiprocessin_pool.executor": "Run",
     "Python.multiprocessing_process.executor": "Run",
+    "Python.multiprocessing_queue.executor": "Run",
     "Python.requests_file.executor": "Run",
     "Python.students.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -266,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761191167557</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="TASK-433: Задача - multiprocessing.Pool">
+      <option name="closed" value="true" />
+      <created>1761191749451</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1761191749451</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +316,8 @@
     <MESSAGE value="TASK-433: Задача - Контекстные менеджеры (with)" />
     <MESSAGE value="TASK-433: Задача - Концепция: GIL (Global Interpreter Lock)" />
     <MESSAGE value="TASK-433: Задача - multiprocessing.Process" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-433: Задача - multiprocessing.Process" />
+    <MESSAGE value="TASK-433: Задача - multiprocessing.Pool" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-433: Задача - multiprocessing.Pool" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$calc.coverage" NAME="calc Coverage Results" MODIFIED="1761118807648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -315,6 +326,8 @@
     <SUITE FILE_PATH="coverage/techcore_practic$gil_esse.coverage" NAME="gil_esse Coverage Results" MODIFIED="1761138219997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$functions.coverage" NAME="functions Coverage Results" MODIFIED="1761190167954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$requests_file.coverage" NAME="requests_file Coverage Results" MODIFIED="1761123048963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$multiprocessin_pool.coverage" NAME="multiprocessin_pool Coverage Results" MODIFIED="1761191667422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$multiprocessing_queue.coverage" NAME="multiprocessing_queue Coverage Results" MODIFIED="1761193024721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$find_error.coverage" NAME="find_error Coverage Results" MODIFIED="1761124327795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$multiprocessing_process.coverage" NAME="multiprocessing_process Coverage Results" MODIFIED="1761191119139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$main.coverage" NAME="main Coverage Results" MODIFIED="1761121045307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />
