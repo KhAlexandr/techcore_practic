@@ -1,13 +1,9 @@
-from fastapi import FastAPI, Depends
+from fastapi import APIRouter, Depends
 
-from books.models import BookScheme
-
-app = FastAPI()
+from app.books.models import BookScheme
 
 
-@app.get("/")
-def hello():
-    return {"message": "Hello, World"}
+router = APIRouter(prefix="/books", tags=["Упрпвление книгами"])
 
 
 books_db = {}
@@ -19,7 +15,7 @@ def get_db_session():
     yield session
 
 
-@app.post("/books")
+@router.post("/")
 def create_book(book: BookScheme, db: dict = Depends(get_db_session)):
     global current_id
     db[current_id] = book
@@ -27,6 +23,6 @@ def create_book(book: BookScheme, db: dict = Depends(get_db_session)):
     return {"id": current_id - 1, **book.dict()}
 
 
-@app.get("/books/{book_id}")
+@router.get("/{book_id}")
 def get_book(book_id: int):
     return {"id": book_id, **books_db[book_id].dict()}
