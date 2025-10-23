@@ -1,14 +1,29 @@
 def calc(a, b, op):
-    a = float(a) if "." in a else int(a)
-    b = float(b) if "." in b else int(b)
+
+    if a.isalpha():
+        a = str(a)
+    elif "." in a:
+        a = float(a)
+    else:
+        a = int(a)
+
+    if b.isalpha():
+        b = str(b)
+    elif "." in b:
+        b = float(b)
+    else:
+        b = int(b)
 
     if op == "+":
         return a + b
-    elif op == "-":
-        return a - b
-    elif op == "*":
+    if op == "*":
         return a * b
-    return a / b
+    if op == "-":
+        return a - b
+    if op == "/":
+        if b == 0:
+            return "Нельзя делить на ноль"
+        return a / b
 
 
 a = input("Введите первый аргумент:")
