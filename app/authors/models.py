@@ -1,5 +1,6 @@
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String
+from typing import List
 
 from app.database import Base
 
@@ -11,3 +12,5 @@ class Author(Base):
     first_name: Mapped[str] = mapped_column(String(50))
     last_name: Mapped[str] = mapped_column(String(50))
     age: Mapped[int | None] = None
+
+    books: Mapped[List["Book"]] = relationship("Book", back_populates="author")

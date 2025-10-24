@@ -1,9 +1,9 @@
-import asyncio
-
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, HTTPException
 
 from sqlalchemy import select
+from sqlalchemy.orm import selectinload
 
+from app.authors.models import Author
 from app.books.schemas import BookScheme
 from app.books.models import Book
 from app.database import session_maker
@@ -15,7 +15,10 @@ router = APIRouter(prefix="/books", tags=["Упрпвление книгами"]
 class BookRepository:
     async def get_by_id(self, book_id: int):
         async with session_maker() as session:
-            result = await session.execute(select(Book).where(Book.id == book_id))
+            result = await session.execute(
+                select(Book)
+                .options(selectinload(Book.author))
+                .where(Book.id == book_id))
             return result.scalar_one_or_none()
 
     async def create(self, title: str, year: int | None = None) -> Book:
@@ -25,6 +28,28 @@ class BookRepository:
             await session.commit()
             await session.refresh(book)
             return book
+
+    async def create_author_and_book(
+            self,
+            first_name: str,
+            last_name: str,
+            title: str,
+            age: int | None = None,
+            year: int | None = None
+    ):
+        async with session_maker() as session:
+            async with session.begin():
+                author = Author(
+                    first_name=first_name,
+                    last_name=last_name,
+                    age=age
+                )
+                session.add(author)
+                await session.flush()
+
+                book = Book(title=title, year=year, author_id=author.id)
+                session.add(book)
+                return author
 
 
 book_repo = BookRepository()
