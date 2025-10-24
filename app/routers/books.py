@@ -2,7 +2,7 @@ import asyncio
 
 from fastapi import APIRouter, Depends, HTTPException
 
-from app.books.models import BookScheme
+from app.books.schemas import BookScheme
 
 
 router = APIRouter(prefix="/books", tags=["Упрпвление книгами"])
