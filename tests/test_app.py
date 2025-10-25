@@ -3,7 +3,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app.books.models import Book
-from app.routers.books import BookRepository
+from app.routers.books import BookRepository, get_db_session
 from app.main import app
 
 
@@ -21,9 +21,7 @@ async def test_get_book(mocker):
     mock_session = mocker.Mock()
 
     mock_get = mocker.patch.object(
-        service.repo,
-        "get_by_id",
-        return_value=Book(id=1, title="Test", year=2025)
+        service.repo, "get_by_id", return_value=Book(id=1, title="Test", year=2025)
     )
     result = await service.get_book(1, mock_session)
     assert result.id == 1
@@ -31,11 +29,11 @@ async def test_get_book(mocker):
     assert result.year == 2025
 
 
-def test_endpoint():
+def test_endpoint(mock_db_session):
+    app.dependency_overrides[get_db_session] = lambda: mock_db_session
     client = TestClient(app)
     response = client.get("/api/books")
     assert response.status_code == 200
-
-
-def test_simple_add():
-    assert 1 + 1 == 2
+    books = response.json()
+    assert len(books["books"]) == 10
+    app.dependency_overrides.clear()

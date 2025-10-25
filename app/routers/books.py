@@ -50,8 +50,8 @@ class BookRepository:
         return book.to_dict()
 
     async def get_all_books(self, session: AsyncSession):
-        result = await session.execute(select(Book))
-        books = result.scalars().all()
+        result = await session.scalars(select(Book))
+        books = result.all()
         return [book.to_dict() for book in books]
 
     async def update_book(self, book_id: int, session: AsyncSession, **kwargs):
