@@ -50,17 +50,20 @@ class BookRepository:
         return book.to_dict()
 
     async def update_book(self, book_id: int, session: AsyncSession, **kwargs):
-        result = await session.execute(
-            select(Book).options(selectinload(Book.author)).where(Book.id == book_id)
-        )
-        book = result.scalar_one_or_none()
-        if book:
-            for key, value in kwargs.items():
-                setattr(book, key, value)
-            await session.commit()
-            await redis_client.delete(f"book:{book_id}")
-            await redis_client.publish("cache:invalidate", str(book_id))
-        return book
+        async with redis_client.lock(f"inventory_lock:{book_id}", timeout=10):
+            result = await session.execute(
+                select(Book)
+                .options(selectinload(Book.author))
+                .where(Book.id == book_id)
+            )
+            book = result.scalar_one_or_none()
+            if book:
+                for key, value in kwargs.items():
+                    setattr(book, key, value)
+                await session.commit()
+                await redis_client.delete(f"book:{book_id}")
+                await redis_client.publish("cache:invalidate", str(book_id))
+            return book
 
     async def create(
         self,
