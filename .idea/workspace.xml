@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-441: Задача - docker-compose (NoSQL)">
-      <change afterPath="$PROJECT_DIR$/app/redis_database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/SQLAlchemy_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/SQLAlchemy_core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/database.py" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-441: Применил black для читаемости">
+      <change afterPath="$PROJECT_DIR$/app/authors/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/books/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/books/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/books/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/books/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/redis_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/redis_database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routers/books.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/books.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +57,7 @@
     "Python tests.Python tests in gil_esse.py.executor": "Run",
     "Python tests.Python tests in redis_database.py.executor": "Run",
     "Python.book.executor": "Run",
+    "Python.books.executor": "Debug",
     "Python.calc.executor": "Run",
     "Python.decorators.executor": "Run",
     "Python.exeption.executor": "Run",
@@ -295,7 +297,23 @@
       <option name="project" value="LOCAL" />
       <updated>1761365425023</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="TASK-441: Задача - redis-py (Async)">
+      <option name="closed" value="true" />
+      <created>1761366721337</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1761366721337</updated>
+    </task>
+    <task id="LOCAL-00025" summary="TASK-441: Применил black для читаемости">
+      <option name="closed" value="true" />
+      <created>1761366737927</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1761366737927</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +331,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-431: Задача - Настройка виртуального окружения" />
     <MESSAGE value="TASK-431: Задача - Базовый синтаксис и типы(Калькулятор)" />
     <MESSAGE value="TASK-431: Задача - Структуры данных (List и Dict)" />
     <MESSAGE value="TASK-431: Задача - List Comprehensions (Списковые включения)" />
@@ -337,7 +354,9 @@
     <MESSAGE value="TASK-433: Задача - multiprocessing.Process" />
     <MESSAGE value="TASK-433: Задача - multiprocessing.Pool" />
     <MESSAGE value="TASK-441: Задача - docker-compose (NoSQL)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-441: Задача - docker-compose (NoSQL)" />
+    <MESSAGE value="TASK-441: Задача - redis-py (Async)" />
+    <MESSAGE value="TASK-441: Применил black для читаемости" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-441: Применил black для читаемости" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$async.coverage" NAME="async Coverage Results" MODIFIED="1761208649823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -364,6 +383,7 @@
     <SUITE FILE_PATH="coverage/techcore_practic$redis_database.coverage" NAME="redis_database Coverage Results" MODIFIED="1761366179268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/techcore_practic$multiprocessing_queue.coverage" NAME="multiprocessing_queue Coverage Results" MODIFIED="1761193126544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$async_aiofiles.coverage" NAME="async_aiofiles Coverage Results" MODIFIED="1761215658169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$books.coverage" NAME="books Coverage Results" MODIFIED="1761369851476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/routers" />
     <SUITE FILE_PATH="coverage/techcore_practic$main.coverage" NAME="main Coverage Results" MODIFIED="1761121045307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />
     <SUITE FILE_PATH="coverage/techcore_practic$exeption.coverage" NAME="exeption Coverage Results" MODIFIED="1761122180940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

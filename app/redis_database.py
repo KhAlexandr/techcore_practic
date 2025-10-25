@@ -6,13 +6,13 @@ import asyncio
 redis_client = redis.Redis(host="localhost", port=6379, decode_responses=True)
 
 
-async def ping_redis():
+async def ping_client():
     result = await redis_client.ping()
     return result
 
 
 async def main():
-    result = await ping_redis()
+    result = await ping_client()
     print(result)
 
 
