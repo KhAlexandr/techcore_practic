@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-433: Задача - multiprocessing.Pool" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/async_aiofiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_aiofiles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/async_esse.md" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_esse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/async_gather.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_gather.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/async_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/async_http.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_http.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/async_lock.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_lock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/async_queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_queue.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/async_wait_for.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_wait_for.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asyncio_to_thread.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/asyncio_to_thread.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/book.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/context_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/context_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coroutine.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/coroutine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/decorators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/esse.md" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/esse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiprocessin_pool.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/multiprocessin_pool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiprocessing_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/multiprocessing_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiprocessing_queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/multiprocessing_queue.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,37 +64,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python tests.Python tests in gil_esse.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.book.executor&quot;: &quot;Run&quot;,
-    &quot;Python.calc.executor&quot;: &quot;Run&quot;,
-    &quot;Python.decorators.executor&quot;: &quot;Run&quot;,
-    &quot;Python.exeption.executor&quot;: &quot;Run&quot;,
-    &quot;Python.find_error.executor&quot;: &quot;Run&quot;,
-    &quot;Python.functions.executor&quot;: &quot;Run&quot;,
-    &quot;Python.gil_esse.executor&quot;: &quot;Run&quot;,
-    &quot;Python.json_file.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.multiprocessin_pool.executor&quot;: &quot;Run&quot;,
-    &quot;Python.multiprocessing_process.executor&quot;: &quot;Run&quot;,
-    &quot;Python.multiprocessing_queue.executor&quot;: &quot;Run&quot;,
-    &quot;Python.requests_file.executor&quot;: &quot;Run&quot;,
-    &quot;Python.students.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#2 on feature/TASK-433&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests in gil_esse.py.executor": "Run",
+    "Python.book.executor": "Run",
+    "Python.calc.executor": "Run",
+    "Python.decorators.executor": "Run",
+    "Python.exeption.executor": "Run",
+    "Python.find_error.executor": "Run",
+    "Python.functions.executor": "Run",
+    "Python.gil_esse.executor": "Run",
+    "Python.json_file.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.multiprocessin_pool.executor": "Run",
+    "Python.multiprocessing_process.executor": "Run",
+    "Python.multiprocessing_queue.executor": "Run",
+    "Python.requests_file.executor": "Run",
+    "Python.students.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "#5 on feature/TASK-439",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.completion",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/module3_async" />
+      <recent name="$PROJECT_DIR$/async_python" />
+      <recent name="$PROJECT_DIR$/module2_pythom" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
