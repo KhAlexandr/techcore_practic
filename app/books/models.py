@@ -14,3 +14,11 @@ class Book(Base):
     author_id: Mapped[int] = mapped_column(ForeignKey("authors.id"))
 
     author: Mapped["Author"] = relationship("Author", back_populates="books")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "year": self.year,
+            "author_id": self.author_id,
+        }

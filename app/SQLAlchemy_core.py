@@ -4,7 +4,8 @@ from database import session_maker
 
 async def get_books_report():
     async with session_maker() as session:
-        sql = text("""
+        sql = text(
+            """
             SELECT 
                 a.first_name || ' ' || a.last_name as author_name,
                 COUNT(b.id) as book_count,
@@ -16,7 +17,8 @@ async def get_books_report():
             GROUP BY a.id, author_name
             HAVING COUNT(b.id) > 0
             ORDER BY book_count DESC
-        """)
+        """
+        )
 
         result = await session.execute(sql)
         return result.mappings().all()
