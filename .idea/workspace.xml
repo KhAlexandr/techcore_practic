@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/async_aiofiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_aiofiles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/async_esse.md" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_esse.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/async_gather.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_gather.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/async_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/async_http.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_http.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/async_lock.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_lock.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/async_queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_queue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/async_wait_for.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/async_wait_for.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asyncio_to_thread.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/asyncio_to_thread.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/book.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/context_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/context_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroutine.py" beforeDir="false" afterPath="$PROJECT_DIR$/module3_async/coroutine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/decorators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esse.md" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/esse.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multiprocessin_pool.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/multiprocessin_pool.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multiprocessing_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/multiprocessing_process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multiprocessing_queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/module2_pythom/multiprocessing_queue.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +68,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#5 on feature/TASK-439",
+    "git-widget-placeholder": "feature/TASK-441",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
