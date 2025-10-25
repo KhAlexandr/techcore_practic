@@ -1,0 +1,12 @@
+volumes:
+  fp_data:
+
+
+services:
+  db:
+    image: postgres:16.0
+    env_file: .env
+    volumes:
+      - fp_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
