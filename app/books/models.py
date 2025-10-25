@@ -11,14 +11,14 @@ class Book(Base):
     title: Mapped[str]
     year: Mapped[int | None] = None
 
-    # author_id: Mapped[int] = mapped_column(ForeignKey("authors.id"))
-    #
-    # author: Mapped["Author"] = relationship("Author", back_populates="books")
+    author_id: Mapped[int] = mapped_column(ForeignKey("authors.id"))
+
+    author: Mapped["Author"] = relationship("Author", back_populates="books")
 
     def to_dict(self):
         return {
             "id": self.id,
             "title": self.title,
             "year": self.year,
-            # "author_id": self.author_id,
+            "author_id": self.author_id,
         }
