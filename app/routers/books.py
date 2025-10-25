@@ -24,6 +24,17 @@ async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
 router = APIRouter(prefix="/books", tags=["Управление книгами"])
 
 
+class BackgroundService:
+    async def cache_listener(self):
+        pubsub = redis_client.pubsub()
+        await pubsub.subscribe("cache:invalidate")
+
+        async for message in pubsub.listen():
+            if message["type"] == "message":
+                book_id = message["data"]
+                await redis_client.delete(f"book:{book_id}")
+
+
 class BookRepository:
     async def get_by_id(self, book_id: int, session: AsyncSession):
         key = f"book:{book_id}"
@@ -48,6 +59,7 @@ class BookRepository:
                 setattr(book, key, value)
             await session.commit()
             await redis_client.delete(f"book:{book_id}")
+            await redis_client.publish("cache:invalidate", str(book_id))
         return book
 
     async def create(

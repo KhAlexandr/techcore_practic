@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-441: Задача - Mongo CRUD (Async)">
-      <change beforePath="$PROJECT_DIR$/app/routers/reviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/reviews.py" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-441: использовал black">
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/books.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/books.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,7 +343,23 @@
       <option name="project" value="LOCAL" />
       <updated>1761381383212</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="TASK-441: Задача - &quot;Полиглотный&quot; Эндпоинт (Async Gather)">
+      <option name="closed" value="true" />
+      <created>1761382615578</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1761382615578</updated>
+    </task>
+    <task id="LOCAL-00031" summary="TASK-441: использовал black">
+      <option name="closed" value="true" />
+      <created>1761382651345</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1761382651345</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,8 +377,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-431: Задача - Модули и Пакеты" />
-    <MESSAGE value="TASK-431: Задача - Работа с файлами и JSON" />
     <MESSAGE value="TASK-431: Задача - Обработка исключений (try/except)" />
     <MESSAGE value="TASK-431: Задача - Библиотека requests" />
     <MESSAGE value="TASK-431: Задача - Отладка (pdb или IDE): до нахождения ошибки" />
@@ -385,17 +400,9 @@
     <MESSAGE value="TASK-441: Задача - Motor (Async MongoDB)" />
     <MESSAGE value="TASK-441: Задача - Mongo Repository (Motor)" />
     <MESSAGE value="TASK-441: Задача - Mongo CRUD (Async)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-441: Задача - Mongo CRUD (Async)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app/main.py</url>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="TASK-441: Задача - &quot;Полиглотный&quot; Эндпоинт (Async Gather)" />
+    <MESSAGE value="TASK-441: использовал black" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-441: использовал black" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$async.coverage" NAME="async Coverage Results" MODIFIED="1761208649823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

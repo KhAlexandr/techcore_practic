@@ -3,11 +3,22 @@ import asyncio
 import datetime
 import logging
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 
 from app.routers import books, reviews
 
-app = FastAPI()
+
+background_service = books.BackgroundService()
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    asyncio.create_task(background_service.cache_listener())
+    yield
+
+
+app = FastAPI(lifespan=lifespan)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
