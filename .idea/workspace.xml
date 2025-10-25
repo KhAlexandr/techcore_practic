@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-441: Задача - Motor (Async MongoDB)">
-      <change afterPath="$PROJECT_DIR$/app/routers/reviews.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routers/books.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/books.py" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-441: Задача - Mongo Repository (Motor)">
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/reviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/reviews.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -327,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761378196176</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="TASK-441: Задача - Mongo Repository (Motor)">
+      <option name="closed" value="true" />
+      <created>1761379067467</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1761379067467</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,7 +353,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-431: Задача - List Comprehensions (Списковые включения)" />
     <MESSAGE value="TASK-431: Задача - Функции и Области видимости" />
     <MESSAGE value="TASK-431: Задача - Модули и Пакеты" />
     <MESSAGE value="TASK-431: Задача - Работа с файлами и JSON" />
@@ -370,7 +377,18 @@
     <MESSAGE value="TASK-441: Задача - Кэширование (Ручное)/Инвалидация кэша" />
     <MESSAGE value="TASK-441: Задача - Motor (Async MongoDB)" />
     <MESSAGE value="TASK-441: Задача - Motor (Async MongoDB)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-441: Задача - Motor (Async MongoDB)" />
+    <MESSAGE value="TASK-441: Задача - Mongo Repository (Motor)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-441: Задача - Mongo Repository (Motor)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/main.py</url>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$async.coverage" NAME="async Coverage Results" MODIFIED="1761208649823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

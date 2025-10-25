@@ -5,7 +5,7 @@ import logging
 
 from fastapi import FastAPI, Request
 
-from app.routers import books
+from app.routers import books, reviews
 
 app = FastAPI()
 
@@ -28,3 +28,4 @@ async def hello():
 
 
 app.include_router(books.router)
+app.include_router(reviews.reviews_router)
