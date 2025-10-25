@@ -21,7 +21,7 @@ async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
         yield session
 
 
-router = APIRouter(prefix="/books", tags=["Упрпвление книгами"])
+router = APIRouter(prefix="/books", tags=["Управление книгами"])
 
 
 class BookRepository:
