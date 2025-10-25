@@ -37,3 +37,12 @@ def test_endpoint(mock_db_session):
     books = response.json()
     assert len(books["books"]) == 10
     app.dependency_overrides.clear()
+
+
+def test_validation():
+    client = TestClient(app)
+    response = client.post(
+        "/api/books",
+        json={"title": 123, "year": 5}
+    )
+    assert response.status_code == 422
