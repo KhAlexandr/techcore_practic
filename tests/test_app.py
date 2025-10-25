@@ -1,8 +1,10 @@
 import pytest
-from pytest_mock import mocker
+
+from fastapi.testclient import TestClient
 
 from app.books.models import Book
 from app.routers.books import BookRepository
+from app.main import app
 
 
 class BookService:
@@ -27,6 +29,12 @@ async def test_get_book(mocker):
     assert result.id == 1
     assert result.title == "Test"
     assert result.year == 2025
+
+
+def test_endpoint():
+    client = TestClient(app)
+    response = client.get("/api/books")
+    assert response.status_code == 200
 
 
 def test_simple_add():

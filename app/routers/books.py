@@ -21,7 +21,7 @@ async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
         yield session
 
 
-router = APIRouter(prefix="/books", tags=["Управление книгами"])
+router = APIRouter(prefix="/api/books", tags=["Управление книгами"])
 
 
 class BackgroundService:
@@ -48,6 +48,11 @@ class BookRepository:
         book = result.scalar_one_or_none()
         await redis_client.set(key, json.dumps(book.to_dict()))
         return book.to_dict()
+
+    async def get_all_books(self, session: AsyncSession):
+        result = await session.execute(select(Book))
+        books = result.scalars().all()
+        return [book.to_dict() for book in books]
 
     async def update_book(self, book_id: int, session: AsyncSession, **kwargs):
         async with redis_client.lock(f"inventory_lock:{book_id}", timeout=10):
@@ -98,6 +103,12 @@ class BookRepository:
 
 
 book_repo = BookRepository()
+
+
+@router.get("/")
+async def get_all_books(session: AsyncSession = Depends(get_db_session)):
+    books = await book_repo.get_all_books(session=session)
+    return {"books": books}
 
 
 @router.post("/")
