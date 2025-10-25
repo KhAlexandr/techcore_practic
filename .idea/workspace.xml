@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-441: Задача - Mongo Repository (Motor)">
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-441: Задача - Mongo CRUD (Async)">
       <change beforePath="$PROJECT_DIR$/app/routers/reviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/reviews.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -335,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761379067467</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="TASK-441: Задача - Mongo CRUD (Async)">
+      <option name="closed" value="true" />
+      <created>1761381383212</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1761381383212</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +360,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-431: Задача - Функции и Области видимости" />
     <MESSAGE value="TASK-431: Задача - Модули и Пакеты" />
     <MESSAGE value="TASK-431: Задача - Работа с файлами и JSON" />
     <MESSAGE value="TASK-431: Задача - Обработка исключений (try/except)" />
@@ -378,7 +384,8 @@
     <MESSAGE value="TASK-441: Задача - Motor (Async MongoDB)" />
     <MESSAGE value="TASK-441: Задача - Motor (Async MongoDB)" />
     <MESSAGE value="TASK-441: Задача - Mongo Repository (Motor)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-441: Задача - Mongo Repository (Motor)" />
+    <MESSAGE value="TASK-441: Задача - Mongo CRUD (Async)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-441: Задача - Mongo CRUD (Async)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
