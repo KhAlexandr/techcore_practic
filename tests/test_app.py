@@ -1,4 +1,5 @@
 import pytest
+from httpx import AsyncClient, ASGITransport
 
 from fastapi.testclient import TestClient
 
@@ -29,13 +30,18 @@ async def test_get_book(mocker):
     assert result.year == 2025
 
 
-def test_endpoint(mock_db_session):
+@pytest.mark.asyncio
+async def test_endpoint(mock_db_session):
     app.dependency_overrides[get_db_session] = lambda: mock_db_session
-    client = TestClient(app)
-    response = client.get("/api/books")
-    assert response.status_code == 200
-    books = response.json()
-    assert len(books["books"]) == 10
+    async with AsyncClient(
+        transport=ASGITransport(app=app),
+        base_url="http://test",
+        follow_redirects=False
+    ) as ac:
+        response = await ac.get("/api/books/")
+        assert response.status_code == 200
+        books = response.json()
+        assert len(books["books"]) == 10
     app.dependency_overrides.clear()
 
 
