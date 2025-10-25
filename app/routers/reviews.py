@@ -52,7 +52,9 @@ async def get_review(product_id: int):
 
 @reviews_router.get("/products/{product_id}/detail")
 async def get_details(product_id: int, session: AsyncSession = Depends(get_db_session)):
-    book_task = asyncio.create_task(book_repo.get_by_id(book_id=product_id, session=session))
+    book_task = asyncio.create_task(
+        book_repo.get_by_id(book_id=product_id, session=session)
+    )
     review_task = asyncio.create_task(review_service.get_product_reviews(product_id))
     book, review = await asyncio.gather(book_task, review_task)
     return {**book, "reviews": review}
