@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-441: использовал black">
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-443: Задача -  Pytest Coverage">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routers/books.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/books.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/TASK-431" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,10 +54,10 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python tests.Python tests in gil_esse.py.executor": "Run",
-    "Python tests.Python tests in redis_database.py.executor": "Run",
+    "Python tests.Python tests in test_app.py.executor": "Run",
     "Python.book.executor": "Run",
-    "Python.books.executor": "Debug",
     "Python.calc.executor": "Run",
+    "Python.conftest.executor": "Run",
     "Python.decorators.executor": "Run",
     "Python.exeption.executor": "Run",
     "Python.find_error.executor": "Run",
@@ -63,23 +65,21 @@
     "Python.gil_esse.executor": "Run",
     "Python.json_file.executor": "Run",
     "Python.main.executor": "Run",
-    "Python.mongo_database.executor": "Run",
     "Python.multiprocessin_pool.executor": "Run",
     "Python.multiprocessing_process.executor": "Run",
     "Python.multiprocessing_queue.executor": "Run",
-    "Python.redis_database.executor": "Run",
     "Python.requests_file.executor": "Run",
     "Python.students.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/TASK-441",
+    "git-widget-placeholder": "feature/TASK-443",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode",
+    "settings.editor.selected.configurable": "editor.preferences.completion",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -287,79 +287,71 @@
       <option name="project" value="LOCAL" />
       <updated>1761191749451</updated>
     </task>
-    <task id="LOCAL-00023" summary="TASK-441: Задача - docker-compose (NoSQL)">
+    <task id="LOCAL-00023" summary="TASK-443: Задача -  pytest (Основы)">
       <option name="closed" value="true" />
-      <created>1761365425023</created>
+      <created>1761393712099</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1761365425023</updated>
+      <updated>1761393712099</updated>
     </task>
-    <task id="LOCAL-00024" summary="TASK-441: Задача - redis-py (Async)">
+    <task id="LOCAL-00024" summary="TASK-443: Задача -  Фикстуры (@pytest.fixture)">
       <option name="closed" value="true" />
-      <created>1761366721337</created>
+      <created>1761395461024</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1761366721337</updated>
+      <updated>1761395461024</updated>
     </task>
-    <task id="LOCAL-00025" summary="TASK-441: Применил black для читаемости">
+    <task id="LOCAL-00025" summary="TASK-443: Задача -  Мокинг (pytest-mock) mocked">
       <option name="closed" value="true" />
-      <created>1761366737927</created>
+      <created>1761396868046</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1761366737927</updated>
+      <updated>1761396868046</updated>
     </task>
-    <task id="LOCAL-00026" summary="TASK-441: Задача - Кэширование (Ручное)/Инвалидация кэша">
+    <task id="LOCAL-00026" summary="TASK-443: Задача -  FastAPI TestClient (Интеграция)">
       <option name="closed" value="true" />
-      <created>1761377228507</created>
+      <created>1761398805332</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1761377228507</updated>
+      <updated>1761398805332</updated>
     </task>
-    <task id="LOCAL-00027" summary="TASK-441: Задача - Mongo Repository (Motor)">
+    <task id="LOCAL-00027" summary="TASK-443: Задача -  Переопределение DI (Depends) в тестах">
       <option name="closed" value="true" />
-      <created>1761378196176</created>
+      <created>1761400338690</created>
       <option name="number" value="00027" />
       <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1761378196176</updated>
+      <updated>1761400338690</updated>
     </task>
-    <task id="LOCAL-00028" summary="TASK-441: Задача - Mongo Repository (Motor)">
+    <task id="LOCAL-00028" summary="TASK-443: Задача -  Тестирование 422 (Валидация Pydantic)">
       <option name="closed" value="true" />
-      <created>1761379067467</created>
+      <created>1761400852773</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1761379067467</updated>
+      <updated>1761400852773</updated>
     </task>
-    <task id="LOCAL-00029" summary="TASK-441: Задача - Mongo CRUD (Async)">
+    <task id="LOCAL-00029" summary="TASK-443: Задача -  pytest-asyncio/httpx (Тестирование async API)">
       <option name="closed" value="true" />
-      <created>1761381383212</created>
+      <created>1761402521458</created>
       <option name="number" value="00029" />
       <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
-      <updated>1761381383212</updated>
+      <updated>1761402521458</updated>
     </task>
-    <task id="LOCAL-00030" summary="TASK-441: Задача - &quot;Полиглотный&quot; Эндпоинт (Async Gather)">
+    <task id="LOCAL-00030" summary="TASK-443: Задача -  Pytest Coverage">
       <option name="closed" value="true" />
-      <created>1761382615578</created>
+      <created>1761402681002</created>
       <option name="number" value="00030" />
       <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
-      <updated>1761382615578</updated>
+      <updated>1761402681002</updated>
     </task>
-    <task id="LOCAL-00031" summary="TASK-441: использовал black">
-      <option name="closed" value="true" />
-      <created>1761382651345</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1761382651345</updated>
-    </task>
-    <option name="localTasksCounter" value="32" />
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,6 +369,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="TASK-431: Задача - Модули и Пакеты" />
+    <MESSAGE value="TASK-431: Задача - Работа с файлами и JSON" />
     <MESSAGE value="TASK-431: Задача - Обработка исключений (try/except)" />
     <MESSAGE value="TASK-431: Задача - Библиотека requests" />
     <MESSAGE value="TASK-431: Задача - Отладка (pdb или IDE): до нахождения ошибки" />
@@ -392,17 +386,15 @@
     <MESSAGE value="TASK-433: Задача - Концепция: GIL (Global Interpreter Lock)" />
     <MESSAGE value="TASK-433: Задача - multiprocessing.Process" />
     <MESSAGE value="TASK-433: Задача - multiprocessing.Pool" />
-    <MESSAGE value="TASK-441: Задача - docker-compose (NoSQL)" />
-    <MESSAGE value="TASK-441: Задача - redis-py (Async)" />
-    <MESSAGE value="TASK-441: Применил black для читаемости" />
-    <MESSAGE value="TASK-441: Задача - Кэширование (Ручное)/Инвалидация кэша" />
-    <MESSAGE value="TASK-441: Задача - Motor (Async MongoDB)" />
-    <MESSAGE value="TASK-441: Задача - Motor (Async MongoDB)" />
-    <MESSAGE value="TASK-441: Задача - Mongo Repository (Motor)" />
-    <MESSAGE value="TASK-441: Задача - Mongo CRUD (Async)" />
-    <MESSAGE value="TASK-441: Задача - &quot;Полиглотный&quot; Эндпоинт (Async Gather)" />
-    <MESSAGE value="TASK-441: использовал black" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-441: использовал black" />
+    <MESSAGE value="TASK-443: Задача -  pytest (Основы)" />
+    <MESSAGE value="TASK-443: Задача -  Фикстуры (@pytest.fixture)" />
+    <MESSAGE value="TASK-443: Задача -  Мокинг (pytest-mock) mocked" />
+    <MESSAGE value="TASK-443: Задача -  FastAPI TestClient (Интеграция)" />
+    <MESSAGE value="TASK-443: Задача -  Переопределение DI (Depends) в тестах" />
+    <MESSAGE value="TASK-443: Задача -  Тестирование 422 (Валидация Pydantic)" />
+    <MESSAGE value="TASK-443: Задача -  pytest-asyncio/httpx (Тестирование async API)" />
+    <MESSAGE value="TASK-443: Задача -  Pytest Coverage" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-443: Задача -  Pytest Coverage" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$async.coverage" NAME="async Coverage Results" MODIFIED="1761208649823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -412,12 +404,13 @@
     <SUITE FILE_PATH="coverage/techcore_practic$async_queue.coverage" NAME="async_queue Coverage Results" MODIFIED="1761211867528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$functions.coverage" NAME="functions Coverage Results" MODIFIED="1761190167954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$requests_file.coverage" NAME="requests_file Coverage Results" MODIFIED="1761123048963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$conftest.coverage" NAME="conftest Coverage Results" MODIFIED="1761394600327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/techcore_practic$find_error.coverage" NAME="find_error Coverage Results" MODIFIED="1761124327795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$multiprocessing_process.coverage" NAME="multiprocessing_process Coverage Results" MODIFIED="1761191119139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$students.coverage" NAME="students Coverage Results" MODIFIED="1761119771021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$async_http.coverage" NAME="async_http Coverage Results" MODIFIED="1761211164373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$book.coverage" NAME="book Coverage Results" MODIFIED="1761125947616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/techcore_practic$.coverage" NAME=" Coverage Results" MODIFIED="1761366068709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$.coverage" NAME=" Coverage Results" MODIFIED="1761473428568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$async_gather.coverage" NAME="async_gather Coverage Results" MODIFIED="1761210570157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$mongo_database.coverage" NAME="mongo_database Coverage Results" MODIFIED="1761377876657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/techcore_practic$asyncio_to_thread.coverage" NAME="asyncio_to_thread Coverage Results" MODIFIED="1761216920757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
