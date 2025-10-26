@@ -2,7 +2,7 @@ from typing import AsyncGenerator
 
 import json
 
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, status
 
 from sqlalchemy import select
 from sqlalchemy.orm import selectinload
@@ -111,7 +111,7 @@ async def get_all_books(session: AsyncSession = Depends(get_db_session)):
     return {"books": books}
 
 
-@router.post("/")
+@router.post("/", status_code=status.HTTP_201_CREATED)
 async def create_book(
     book: BookScheme, session: AsyncSession = Depends(get_db_session)
 ):
