@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-443: Задача -  Pytest Coverage">
-      <change afterPath="$PROJECT_DIR$/module8_httpx_asyncio/author_service.py" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-445: Задача - &#10;PyBreaker (Circuit Breaker)">
+      <change beforePath="$PROJECT_DIR$/module8_httpx_asyncio/author_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/module8_httpx_asyncio/author_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +68,7 @@
     "Python.multiprocessing_queue.executor": "Run",
     "Python.requests_file.executor": "Run",
     "Python.students.executor": "Run",
+    "Python.test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -349,7 +350,31 @@
       <option name="project" value="LOCAL" />
       <updated>1761402681002</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="TASK-445: Задача - &#10;httpx.AsyncClient (Пул соединений)/ asyncio.wait_for (Таймауты)">
+      <option name="closed" value="true" />
+      <created>1761549550882</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1761549550882</updated>
+    </task>
+    <task id="LOCAL-00032" summary="TASK-445: Задача - &#10;Backoff (Retry Policy)">
+      <option name="closed" value="true" />
+      <created>1761553137207</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1761553137207</updated>
+    </task>
+    <task id="LOCAL-00033" summary="TASK-445: Задача - &#10;PyBreaker (Circuit Breaker)">
+      <option name="closed" value="true" />
+      <created>1761554132250</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1761554132250</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,9 +392,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-431: Задача - Модули и Пакеты" />
-    <MESSAGE value="TASK-431: Задача - Работа с файлами и JSON" />
-    <MESSAGE value="TASK-431: Задача - Обработка исключений (try/except)" />
     <MESSAGE value="TASK-431: Задача - Библиотека requests" />
     <MESSAGE value="TASK-431: Задача - Отладка (pdb или IDE): до нахождения ошибки" />
     <MESSAGE value="TASK-431: Задача - Отладка (pdb или IDE): нашел ошибку через точку в IDE(PyCharm)" />
@@ -392,13 +414,16 @@
     <MESSAGE value="TASK-443: Задача -  Тестирование 422 (Валидация Pydantic)" />
     <MESSAGE value="TASK-443: Задача -  pytest-asyncio/httpx (Тестирование async API)" />
     <MESSAGE value="TASK-443: Задача -  Pytest Coverage" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-443: Задача -  Pytest Coverage" />
+    <MESSAGE value="TASK-445: Задача - &#10;httpx.AsyncClient (Пул соединений)/ asyncio.wait_for (Таймауты)" />
+    <MESSAGE value="TASK-445: Задача - &#10;Backoff (Retry Policy)" />
+    <MESSAGE value="TASK-445: Задача - &#10;PyBreaker (Circuit Breaker)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-445: Задача - &#10;PyBreaker (Circuit Breaker)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$async.coverage" NAME="async Coverage Results" MODIFIED="1761208649823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$calc.coverage" NAME="calc Coverage Results" MODIFIED="1761118807648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$gil_esse.coverage" NAME="gil_esse Coverage Results" MODIFIED="1761138219997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/techcore_practic$author_service.coverage" NAME="author_service Coverage Results" MODIFIED="1761549340246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/module8_httpx_asyncio" />
+    <SUITE FILE_PATH="coverage/techcore_practic$author_service.coverage" NAME="author_service Coverage Results" MODIFIED="1761556891763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/module8_httpx_asyncio" />
     <SUITE FILE_PATH="coverage/techcore_practic$async_lock.coverage" NAME="async_lock Coverage Results" MODIFIED="1761213196410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$async_queue.coverage" NAME="async_queue Coverage Results" MODIFIED="1761211867528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$functions.coverage" NAME="functions Coverage Results" MODIFIED="1761190167954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -422,6 +447,7 @@
     <SUITE FILE_PATH="coverage/techcore_practic$redis_database.coverage" NAME="redis_database Coverage Results" MODIFIED="1761366179268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/techcore_practic$multiprocessing_queue.coverage" NAME="multiprocessing_queue Coverage Results" MODIFIED="1761193126544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$async_aiofiles.coverage" NAME="async_aiofiles Coverage Results" MODIFIED="1761215658169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$test.coverage" NAME="test Coverage Results" MODIFIED="1761556402210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/module8_httpx_asyncio" />
     <SUITE FILE_PATH="coverage/techcore_practic$books.coverage" NAME="books Coverage Results" MODIFIED="1761369851476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/routers" />
     <SUITE FILE_PATH="coverage/techcore_practic$main.coverage" NAME="main Coverage Results" MODIFIED="1761121045307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />
     <SUITE FILE_PATH="coverage/techcore_practic$exeption.coverage" NAME="exeption Coverage Results" MODIFIED="1761122180940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
