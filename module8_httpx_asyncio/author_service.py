@@ -4,6 +4,11 @@ import asyncio
 
 import backoff
 
+from pybreaker import CircuitBreaker
+
+
+circuit_breaker = CircuitBreaker(fail_max=5)
+
 
 class AuthorService:
     def __init__(self):
@@ -17,15 +22,16 @@ class AuthorService:
         await self.client.aclose()
 
     @backoff.on_exception(backoff.expo, httpx.RequestError, max_tries=3)
+    @circuit_breaker
     async def get_url(self, url):
-        response = await asyncio.wait_for(self.client.get(url), timeout=2.0)
+        response = await self.client.get(url)
         return response
 
 
 async def main():
     async with AuthorService() as author_repo:
-        response = await author_repo.get_url("https://httpbin.org/get")
-        print(response.json())
+        response = await author_repo.get_url("https://httpbin.org/status/200")
+        print(response.status_code)
 
 
 if __name__ == "__main__":
