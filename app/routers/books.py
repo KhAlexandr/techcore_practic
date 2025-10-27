@@ -8,12 +8,15 @@ from sqlalchemy import select
 from sqlalchemy.orm import selectinload
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from pybreaker import CircuitBreakerError
+
 from app.authors.models import Author
 from app.books.schemas import BasBookScheme, BookScheme
 from app.books.models import Book
 from app.database import session_maker
 from app.authors.schemas import AuthorScheme
 from app.redis_database import redis_client
+from app.routers.author_service import AuthorService
 
 
 async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
@@ -46,8 +49,14 @@ class BookRepository:
             select(Book).options(selectinload(Book.author)).where(Book.id == book_id)
         )
         book = result.scalar_one_or_none()
-        await redis_client.set(key, json.dumps(book.to_dict()))
-        return book.to_dict()
+        if book:
+            author_service = AuthorService()
+            author_name = await author_service.get_author_name(book.author_id)
+            book_dict = book.to_dict()
+            book_dict["author_name"] = author_name
+            await redis_client.set(key, json.dumps(book_dict))
+            return book_dict
+        return None
 
     async def get_all_books(self, session: AsyncSession):
         result = await session.scalars(select(Book))
@@ -129,7 +138,7 @@ async def create_book(
 @router.get("/{book_id}")
 async def get_book(book_id: int, session: AsyncSession = Depends(get_db_session)):
     book = await book_repo.get_by_id(book_id, session=session)
-    if not book:
+    if book is None:
         raise HTTPException(status_code=404, detail="Book not found")
     return {**book}
 

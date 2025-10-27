@@ -23,20 +23,28 @@ class AuthorService:
     async def __aexit__(self, exc_type, exc_val, exc_tb):
         await self.client.aclose()
 
-    @backoff.on_exception(backoff.expo, httpx.RequestError, max_tries=3)
     @circuit(failure_threshold=5)
-    async def get_url(self, url):
-        response = await self.client.get(url)
+    @backoff.on_exception(backoff.expo, httpx.RequestError, max_tries=3)
+    async def get_author(self, author_id):
+        response = await self.client.get(f"http/api/author/{author_id}")
         response.raise_for_status()
-        return response
+        return response.json()
+
+    async def get_author_name(self, author_id):
+        try:
+            author = await self.get_author(author_id)
+            return author["name"]
+        except CircuitBreakerError:
+            return "Default Author"
+        except Exception as e:
+            return "Default Author"
 
 
 async def main():
     async with AuthorService() as author_repo:
         for i in range(6):
             try:
-                response = await author_repo.get_url(
-                    "https://example.com/api")
+                await author_repo.get_author(1)
             except CircuitBreakerError as e:
                 print(f"Ошибка: {type(e).__name__}")
             except Exception as e:
