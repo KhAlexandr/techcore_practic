@@ -6,8 +6,6 @@ import backoff
 
 from pybreaker import CircuitBreaker, CircuitBreakerError
 
-from unittest.mock import AsyncMock
-
 from circuitbreaker import circuit
 
 
@@ -21,13 +19,9 @@ class AuthorService:
     async def __aenter__(self):
         self.client = httpx.AsyncClient()
         return self
-        # self.client = AsyncMock()
-        # self.client.get.side_effect = Exception("Mocked error")
-        # return self
 
     async def __aexit__(self, exc_type, exc_val, exc_tb):
         await self.client.aclose()
-        # pass
 
     @backoff.on_exception(backoff.expo, httpx.RequestError, max_tries=3)
     @circuit(failure_threshold=5)
