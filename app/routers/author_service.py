@@ -10,6 +10,7 @@ from circuitbreaker import circuit
 
 
 circuit_breaker = CircuitBreaker(fail_max=5, reset_timeout=5)
+semaphore = asyncio.Semaphore(5)
 
 
 class AuthorService:
@@ -26,9 +27,10 @@ class AuthorService:
     @circuit(failure_threshold=5)
     @backoff.on_exception(backoff.expo, httpx.RequestError, max_tries=3)
     async def get_author(self, author_id):
-        response = await self.client.get(f"http/api/author/{author_id}")
-        response.raise_for_status()
-        return response.json()
+        async with semaphore:
+            response = await self.client.get(f"http/api/author/{author_id}")
+            response.raise_for_status()
+            return response.json()
 
     async def get_author_name(self, author_id):
         try:
