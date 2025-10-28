@@ -13,4 +13,4 @@ celery_app = Celery(
     backend='redis://redis:6379/0',
 )
 
-import worker_service
+import app.celery_tasks.worker_service

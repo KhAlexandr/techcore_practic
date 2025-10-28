@@ -46,9 +46,11 @@ services:
   celery_worker:
     build: .
     container_name: celery_worker-container
-    command: celery -A celery_tasks.worker_service.celery_app worker --loglevel=info
+    command: celery -A app.celery_tasks.worker_service.celery_app worker --loglevel=info
     depends_on:
       - rabbitmq
       - redis
     env_file:
       - .env
+    environment:
+      - PYTHONPATH=/app

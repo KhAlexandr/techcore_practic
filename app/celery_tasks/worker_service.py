@@ -2,7 +2,7 @@ import time
 
 from fastapi import APIRouter, status
 
-from .celery_apps import celery_app
+from app.celery_tasks.celery_apps import celery_app
 
 
 router = APIRouter(prefix="/order", tags=["Тестирование celery"])
