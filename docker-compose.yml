@@ -54,6 +54,12 @@ services:
       - .env
     environment:
       - PYTHONPATH=/app
+    healthcheck:
+      test: [ "CMD", "celery", "-A", "app.celery_tasks.celery_apps", "inspect", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
 
   celery_beat:
     build: .
@@ -64,3 +70,20 @@ services:
       - redis
     environment:
       - PYTHONPATH=/app
+
+  flower:
+    build: .
+    container_name: flower-container
+    command: celery -A app.celery_tasks.celery_apps flower --port=5555
+    ports:
+      - "5555:5555"
+    depends_on:
+      rabbitmq:
+        condition: service_started
+      redis:
+        condition: service_started
+      celery_worker:
+        condition: service_healthy
+    environment:
+      - PYTHONPATH=/app
+    restart: always
