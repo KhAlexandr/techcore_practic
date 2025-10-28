@@ -12,3 +12,5 @@ celery_app = Celery(
     backend="redis://localhost:6379/0",
     broker=f"pyamqp://{os.getenv('RABBITMQ_DEFAULT_USER')}:{os.getenv('RABBITMQ_DEFAULT_PASS')}@localhost:5672//"
 )
+
+import app.worker_service
