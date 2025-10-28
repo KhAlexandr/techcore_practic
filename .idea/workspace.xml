@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-445: Задача - AIOHTTP (Альтернатива httpx)">
-      <change afterPath="$PROJECT_DIR$/module8_httpx_asyncio/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module8_httpx_asyncio/greeter.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module8_httpx_asyncio/greeter_pb2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module8_httpx_asyncio/greeter_pb2_grpc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module8_httpx_asyncio/server.py" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-447: Задача - Flower (Мониторинг Celery)">
+      <change afterPath="$PROJECT_DIR$/esse_celery.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -60,6 +57,7 @@
     "Python.author_service.executor": "Run",
     "Python.book.executor": "Run",
     "Python.calc.executor": "Run",
+    "Python.celery_apps.executor": "Run",
     "Python.conftest.executor": "Run",
     "Python.decorators.executor": "Run",
     "Python.exeption.executor": "Run",
@@ -74,10 +72,11 @@
     "Python.requests_file.executor": "Run",
     "Python.students.executor": "Run",
     "Python.test.executor": "Run",
+    "Python.worker_service.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/TASK-445",
+    "git-widget-placeholder": "feature/TASK-447",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,10 +88,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/celery_tasks" />
       <recent name="$PROJECT_DIR$/app/routers" />
       <recent name="$PROJECT_DIR$/module3_async" />
-      <recent name="$PROJECT_DIR$/async_python" />
-      <recent name="$PROJECT_DIR$/module2_pythom" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -428,7 +428,87 @@
       <option name="project" value="LOCAL" />
       <updated>1761566786963</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="TASK-447: Задача -docker-compose (RabbitMQ)">
+      <option name="closed" value="true" />
+      <created>1761635653429</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1761635653429</updated>
+    </task>
+    <task id="LOCAL-00041" summary="TASK-447: Задача -Настройка Celery/@app.task (Определение Задачи)">
+      <option name="closed" value="true" />
+      <created>1761640202431</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1761640202431</updated>
+    </task>
+    <task id="LOCAL-00042" summary="TASK-447: Задача -Publisher (Отправка Задачи)">
+      <option name="closed" value="true" />
+      <created>1761641330075</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1761641330075</updated>
+    </task>
+    <task id="LOCAL-00043" summary="TASK-447: fix -Publisher (Отправка Задачи)">
+      <option name="closed" value="true" />
+      <created>1761641845096</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1761641845096</updated>
+    </task>
+    <task id="LOCAL-00044" summary="TASK-447: Задача -Consumer (Воркер)">
+      <option name="closed" value="true" />
+      <created>1761647272764</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1761647272764</updated>
+    </task>
+    <task id="LOCAL-00045" summary="TASK-447: fix -Consumer (Воркер)">
+      <option name="closed" value="true" />
+      <created>1761647993077</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1761647993077</updated>
+    </task>
+    <task id="LOCAL-00046" summary="TASK-447: Задача -Celery Retry (Повторы)">
+      <option name="closed" value="true" />
+      <created>1761649447983</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1761649447983</updated>
+    </task>
+    <task id="LOCAL-00047" summary="TASK-447: Задача -Dead Letter Queue (DLQ)">
+      <option name="closed" value="true" />
+      <created>1761650266916</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1761650266916</updated>
+    </task>
+    <task id="LOCAL-00048" summary="TASK-447: Задача - Celery Beat (Планировщик)">
+      <option name="closed" value="true" />
+      <created>1761652073464</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1761652073464</updated>
+    </task>
+    <task id="LOCAL-00049" summary="TASK-447: Задача - Flower (Мониторинг Celery)">
+      <option name="closed" value="true" />
+      <created>1761655010850</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1761655010850</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,16 +526,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-433: Задача - Наследование" />
-    <MESSAGE value="TASK-433: Задача - Декораторы (@decorator)" />
-    <MESSAGE value="TASK-433: Задача - Генераторы (yield)" />
-    <MESSAGE value="TASK-433: fix/ Обработка исключений (try/except)" />
-    <MESSAGE value="TASK-433: fix/ Настройка виртуального окружения" />
-    <MESSAGE value="TASK-433: Задача - Контекстные менеджеры (with)" />
-    <MESSAGE value="TASK-433: Задача - Концепция: GIL (Global Interpreter Lock)" />
-    <MESSAGE value="TASK-433: Задача - multiprocessing.Process" />
-    <MESSAGE value="TASK-433: Задача - multiprocessing.Pool" />
-    <MESSAGE value="TASK-443: Задача -  pytest (Основы)" />
     <MESSAGE value="TASK-443: Задача -  Фикстуры (@pytest.fixture)" />
     <MESSAGE value="TASK-443: Задача -  Мокинг (pytest-mock) mocked" />
     <MESSAGE value="TASK-443: Задача -  FastAPI TestClient (Интеграция)" />
@@ -471,7 +541,17 @@
     <MESSAGE value="TASK-445: Задача - &#10;asyncio.Semaphore (Bulkhead)" />
     <MESSAGE value="TASK-445: Задача - &#10;asyncio.gather (Параллельные вызовы)" />
     <MESSAGE value="TASK-445: Задача - AIOHTTP (Альтернатива httpx)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-445: Задача - AIOHTTP (Альтернатива httpx)" />
+    <MESSAGE value="TASK-447: Задача -docker-compose (RabbitMQ)" />
+    <MESSAGE value="TASK-447: Задача -Настройка Celery/@app.task (Определение Задачи)" />
+    <MESSAGE value="TASK-447: Задача -Publisher (Отправка Задачи)" />
+    <MESSAGE value="TASK-447: fix -Publisher (Отправка Задачи)" />
+    <MESSAGE value="TASK-447: Задача -Consumer (Воркер)" />
+    <MESSAGE value="TASK-447: fix -Consumer (Воркер)" />
+    <MESSAGE value="TASK-447: Задача -Celery Retry (Повторы)" />
+    <MESSAGE value="TASK-447: Задача -Dead Letter Queue (DLQ)" />
+    <MESSAGE value="TASK-447: Задача - Celery Beat (Планировщик)" />
+    <MESSAGE value="TASK-447: Задача - Flower (Мониторинг Celery)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-447: Задача - Flower (Мониторинг Celery)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$async.coverage" NAME="async Coverage Results" MODIFIED="1761208649823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -479,8 +559,10 @@
     <SUITE FILE_PATH="coverage/techcore_practic$gil_esse.coverage" NAME="gil_esse Coverage Results" MODIFIED="1761138219997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$author_service.coverage" NAME="author_service Coverage Results" MODIFIED="1761557718688" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/module8_httpx_asyncio" />
     <SUITE FILE_PATH="coverage/techcore_practic$async_lock.coverage" NAME="async_lock Coverage Results" MODIFIED="1761213196410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$celery_apps.coverage" NAME="celery_apps Coverage Results" MODIFIED="1761638453229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/techcore_practic$async_queue.coverage" NAME="async_queue Coverage Results" MODIFIED="1761211867528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$functions.coverage" NAME="functions Coverage Results" MODIFIED="1761190167954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/techcore_practic$worker_service.coverage" NAME="worker_service Coverage Results" MODIFIED="1761640107555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/techcore_practic$requests_file.coverage" NAME="requests_file Coverage Results" MODIFIED="1761123048963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/techcore_practic$conftest.coverage" NAME="conftest Coverage Results" MODIFIED="1761394600327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/techcore_practic$find_error.coverage" NAME="find_error Coverage Results" MODIFIED="1761124327795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

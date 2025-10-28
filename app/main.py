@@ -7,6 +7,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 
 from app.routers import books, reviews
+from app.celery_tasks.worker_service import router
 
 
 background_service = books.BackgroundService()
@@ -40,3 +41,4 @@ async def hello():
 
 app.include_router(books.router)
 app.include_router(reviews.reviews_router)
+app.include_router(router)
