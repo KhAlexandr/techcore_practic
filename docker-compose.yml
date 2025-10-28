@@ -42,3 +42,13 @@ services:
       - .env
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq/data
+
+  celery_worker:
+    build: .
+    container_name: celery_worker-container
+    command: celery -A celery_tasks.worker_service.celery_app worker --loglevel=info
+    depends_on:
+      - rabbitmq
+      - redis
+    env_file:
+      - .env

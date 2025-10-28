@@ -7,7 +7,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 
 from app.routers import books, reviews
-from app.worker_service import router
+from app.celery_tasks.worker_service import router
 
 
 background_service = books.BackgroundService()

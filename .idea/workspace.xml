@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-447: Задача -Publisher (Отправка Задачи)">
-      <change beforePath="$PROJECT_DIR$/app/celery_apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/celery_apps.py" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-447: fix -Publisher (Отправка Задачи)">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/celery_tasks/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/celery_apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/celery_tasks/celery_apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/worker_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/celery_tasks/worker_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -88,10 +94,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/celery_tasks" />
       <recent name="$PROJECT_DIR$/app/routers" />
       <recent name="$PROJECT_DIR$/module3_async" />
-      <recent name="$PROJECT_DIR$/async_python" />
-      <recent name="$PROJECT_DIR$/module2_pythom" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -451,7 +458,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761641330075</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="TASK-447: fix -Publisher (Отправка Задачи)">
+      <option name="closed" value="true" />
+      <created>1761641845096</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1761641845096</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +484,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-433: fix/ Обработка исключений (try/except)" />
     <MESSAGE value="TASK-433: fix/ Настройка виртуального окружения" />
     <MESSAGE value="TASK-433: Задача - Контекстные менеджеры (with)" />
     <MESSAGE value="TASK-433: Задача - Концепция: GIL (Global Interpreter Lock)" />
@@ -494,7 +508,8 @@
     <MESSAGE value="TASK-447: Задача -docker-compose (RabbitMQ)" />
     <MESSAGE value="TASK-447: Задача -Настройка Celery/@app.task (Определение Задачи)" />
     <MESSAGE value="TASK-447: Задача -Publisher (Отправка Задачи)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-447: Задача -Publisher (Отправка Задачи)" />
+    <MESSAGE value="TASK-447: fix -Publisher (Отправка Задачи)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-447: fix -Publisher (Отправка Задачи)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$async.coverage" NAME="async Coverage Results" MODIFIED="1761208649823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
