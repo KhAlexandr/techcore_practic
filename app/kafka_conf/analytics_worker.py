@@ -4,7 +4,7 @@ from app.mongo_database import mongo_client
 
 import asyncio
 
-conf = {"bootstrap.servers": "kafka:9092", "group.id": "analytics"}
+conf = {"bootstrap.servers": "kafka:9092", "group.id": "analytics", "enable.auto.commit": False}
 
 consumer = Consumer(conf)
 
@@ -29,6 +29,7 @@ async def consume_message():
                 print(f"Получено сообщение: {value}")
                 doc = {"topic": msg.topic(), "value": value}
                 await collection.insert_one(doc)
+                consumer.commit(message=msg, asynchronous=True)
     finally:
         consumer.close()
 
