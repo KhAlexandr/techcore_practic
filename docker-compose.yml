@@ -125,3 +125,12 @@ services:
     environment:
       KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       MONGODB_URL: mongodb://mongo:27017
+
+  faust-worker:
+    build: .
+    command: python -m app.kafka_conf.faust_str worker
+    depends_on:
+      kafka:
+        condition: service_healthy
+    environment:
+      KAFKA_BROKER_URL: kafka:9092
