@@ -107,3 +107,21 @@ services:
       - .env
     ports:
       - "9092:9092"
+    healthcheck:
+      test: [ "CMD", "kafka-topics", "--list", "--bootstrap-server", "localhost:9092" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  analytics-worker:
+    build: .
+    command: python3 -m app.kafka_conf.analytics_worker
+    depends_on:
+      kafka:
+        condition: service_healthy
+      mongo:
+        condition: service_started
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      MONGODB_URL: mongodb://mongo:27017

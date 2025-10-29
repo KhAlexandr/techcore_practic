@@ -137,7 +137,11 @@ async def create_book(
 
 
 @router.get("/{book_id}")
-async def get_book(book_id: int, background_task: BackgroundTasks, session: AsyncSession = Depends(get_db_session)):
+async def get_book(
+    book_id: int,
+    background_task: BackgroundTasks,
+    session: AsyncSession = Depends(get_db_session),
+):
     book = await book_repo.get_by_id(book_id, session=session)
     if book is None:
         raise HTTPException(status_code=404, detail="Book not found")
@@ -146,7 +150,7 @@ async def get_book(book_id: int, background_task: BackgroundTasks, session: Asyn
         producer.produce,
         "book_views",
         key=str(book_id),
-        value=f"Книга {book['title']} была просмотрена."
+        value=f"Книга {book['title']} была просмотрена.",
     )
     return {**book}
 
