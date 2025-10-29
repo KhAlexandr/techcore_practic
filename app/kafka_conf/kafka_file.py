@@ -1,6 +1,3 @@
-from confluent_kafka import Producer
+from aiokafka import AIOKafkaProducer
 
-
-conf = {"bootstrap.servers": "kafka:9092"}
-
-producer = Producer(conf)
+producer = AIOKafkaProducer(bootstrap_servers="kafka:9092")

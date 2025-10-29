@@ -1,37 +1,37 @@
-from confluent_kafka import Consumer, KafkaError
+from aiokafka import AIOKafkaConsumer
 
 from app.mongo_database import mongo_client
 
 import asyncio
 
-conf = {"bootstrap.servers": "kafka:9092", "group.id": "analytics", "enable.auto.commit": False}
-
-consumer = Consumer(conf)
-
-consumer.subscribe(["book_views"])
+consumer = AIOKafkaConsumer(
+    "book_views",
+    bootstrap_servers="kafka:9092",
+    group_id="analytics",
+    enable_auto_commit=False,
+)
 
 
 async def consume_message():
     db = mongo_client.analytics
     collection = db.book_views
+    await consumer.start()
     try:
-        while True:
-            msg = consumer.poll(1.0)
-            if msg is None:
-                continue
-            if msg.error():
-                if msg.error().code() == KafkaError._PARTITION_EOF:
-                    print(f"Конец раздела {msg.topic()} [{msg.partition()}]")
-                elif msg.error():
-                    print(f"Ошибка Kafka: {msg.error()}")
-            else:
-                value = msg.value().decode("utf-8")
-                print(f"Получено сообщение: {value}")
-                doc = {"topic": msg.topic(), "value": value}
-                await collection.insert_one(doc)
-                consumer.commit(message=msg, asynchronous=True)
+        async for msg in consumer:
+            value = msg.value.decode("utf-8")
+
+            doc = {
+                "topic": msg.topic,
+                "value": value,
+            }
+            await collection.insert_one(doc)
+
+            await consumer.commit()
+
+    except Exception as e:
+        print(f"Ошибка: {e}")
     finally:
-        consumer.close()
+        await consumer.stop()
 
 
 async def main():

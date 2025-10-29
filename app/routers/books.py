@@ -1,7 +1,5 @@
 from typing import AsyncGenerator
 
-import asyncio
-
 import json
 
 from fastapi import APIRouter, HTTPException, Depends, status, BackgroundTasks
@@ -145,13 +143,15 @@ async def get_book(
     book = await book_repo.get_by_id(book_id, session=session)
     if book is None:
         raise HTTPException(status_code=404, detail="Book not found")
-    background_task.add_task(
-        asyncio.to_thread,
-        producer.produce,
-        "book_views",
-        key=str(book_id),
-        value=f"Книга {book['title']} была просмотрена.",
-    )
+    await producer.start()
+    try:
+        await producer.send_and_wait(
+            topic="book_views",
+            key=str(book_id),
+            value=f"Книга {book['title']} была просмотрена.",
+        )
+    finally:
+        await producer.stop()
     return {**book}
 
 
