@@ -21,9 +21,9 @@ def nightly_report():
 
 
 celery_app.conf.beat_schedule = {
-    'nightly-report': {
-        'task': 'app.celery_tasks.celery_apps.nightly_report',
-        'schedule': 300.0,
+    "nightly-report": {
+        "task": "app.celery_tasks.celery_apps.nightly_report",
+        "schedule": 300.0,
     },
 }
 

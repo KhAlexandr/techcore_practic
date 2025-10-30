@@ -2,13 +2,11 @@ from typing import AsyncGenerator
 
 import json
 
-from fastapi import APIRouter, HTTPException, Depends, status
+from fastapi import APIRouter, HTTPException, Depends, status, BackgroundTasks
 
 from sqlalchemy import select
 from sqlalchemy.orm import selectinload
 from sqlalchemy.ext.asyncio import AsyncSession
-
-from pybreaker import CircuitBreakerError
 
 from app.authors.models import Author
 from app.books.schemas import BasBookScheme, BookScheme
@@ -17,6 +15,7 @@ from app.database import session_maker
 from app.authors.schemas import AuthorScheme
 from app.redis_database import redis_client
 from app.routers.author_service import AuthorService
+from app.kafka_conf.kafka_file import producer
 
 
 async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
@@ -136,10 +135,23 @@ async def create_book(
 
 
 @router.get("/{book_id}")
-async def get_book(book_id: int, session: AsyncSession = Depends(get_db_session)):
+async def get_book(
+    book_id: int,
+    background_task: BackgroundTasks,
+    session: AsyncSession = Depends(get_db_session),
+):
     book = await book_repo.get_by_id(book_id, session=session)
     if book is None:
         raise HTTPException(status_code=404, detail="Book not found")
+    await producer.start()
+    try:
+        await producer.send_and_wait(
+            topic="book_views",
+            key=str(book_id),
+            value=f"Книга {book['title']} была просмотрена.",
+        )
+    finally:
+        await producer.stop()
     return {**book}
 
 
