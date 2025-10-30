@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
 
 engine = create_async_engine(
-    "postgresql+asyncpg://fastapi_user:mysecretpassword@localhost:5432" "/fastapi",
+    "postgresql+asyncpg://fastapi_user:mysecretpassword@db:5432" "/fastapi",
     echo=True,
 )
 

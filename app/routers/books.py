@@ -143,15 +143,11 @@ async def get_book(
     book = await book_repo.get_by_id(book_id, session=session)
     if book is None:
         raise HTTPException(status_code=404, detail="Book not found")
-    await producer.start()
-    try:
-        await producer.send_and_wait(
-            topic="book_views",
-            key=str(book_id),
-            value=f"Книга {book['title']} была просмотрена.",
-        )
-    finally:
-        await producer.stop()
+    await producer.send_and_wait(
+        topic="book_views",
+        key=str(book_id).encode('utf-8'),
+        value=f"Книга {book['title']} была просмотрена.".encode('utf-8'),
+    )
     return {**book}
 
 

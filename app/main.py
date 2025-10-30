@@ -8,6 +8,7 @@ from fastapi import FastAPI, Request
 
 from app.routers import books, reviews
 from app.celery_tasks.worker_service import router
+from app.kafka_conf.kafka_file import producer
 
 
 background_service = books.BackgroundService()
@@ -16,7 +17,9 @@ background_service = books.BackgroundService()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     asyncio.create_task(background_service.cache_listener())
+    await producer.start()
     yield
+    await producer.stop()
 
 
 app = FastAPI(lifespan=lifespan)
