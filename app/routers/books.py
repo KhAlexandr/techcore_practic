@@ -145,8 +145,8 @@ async def get_book(
         raise HTTPException(status_code=404, detail="Book not found")
     await producer.send_and_wait(
         topic="book_views",
-        key=str(book_id).encode('utf-8'),
-        value=f"Книга {book['title']} была просмотрена.".encode('utf-8'),
+        key=str(book_id).encode("utf-8"),
+        value=f"Книга {book['title']} была просмотрена.".encode("utf-8"),
     )
     return {**book}
 

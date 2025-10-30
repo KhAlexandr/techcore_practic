@@ -4,7 +4,7 @@ import faust
 app = faust.App("stream_apps", broker="kafka://kafka:9092")
 
 
-topic = app.topic("book_views", value_serializer='raw')
+topic = app.topic("book_views", value_serializer="raw")
 
 
 @app.agent(topic)
