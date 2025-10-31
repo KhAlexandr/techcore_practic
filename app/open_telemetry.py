@@ -13,18 +13,14 @@ load_dotenv()
 
 
 def setup_tracing(service_name: str):
-    resource = Resource.create({
-        "service.name": service_name
-    })
+    resource = Resource.create({"service.name": service_name})
 
     tracer_provider = TracerProvider(resource=resource)
 
     trace.set_tracer_provider(tracer_provider)
 
     zipkin_exporter = ZipkinExporter(
-        endpoint=os.getenv(
-            "ZIPKIN_ENDPOINT", "http://localhost:9411/api/v2/spans"
-        ),
+        endpoint=os.getenv("ZIPKIN_ENDPOINT", "http://localhost:9411/api/v2/spans"),
     )
 
     span_processor = BatchSpanProcessor(zipkin_exporter)

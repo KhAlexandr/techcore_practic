@@ -9,6 +9,7 @@ from fastapi import FastAPI, Request
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
 from opentelemetry.instrumentation.celery import CeleryInstrumentor
+from opentelemetry.instrumentation.aiokafka import AIOKafkaInstrumentor
 
 from app.routers import books, reviews
 from app.celery_tasks.worker_service import router
@@ -39,6 +40,7 @@ logger = logging.getLogger(__name__)
 FastAPIInstrumentor.instrument_app(app)
 SQLAlchemyInstrumentor().instrument(engine=engine.sync_engine)
 CeleryInstrumentor().instrument()
+AIOKafkaInstrumentor().instrument()
 
 
 @app.middleware("http")

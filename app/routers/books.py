@@ -126,6 +126,11 @@ async def create_book(
     new_book = await book_repo.create(
         title=book.title, year=book.year, author_id=book.author_id, session=session
     )
+    await producer.send_and_wait(
+        topic="book_views",
+        key=str(new_book.id).encode("utf-8"),
+        value=f"Создана новая книга с названием {new_book.title}".encode("utf-8"),
+    )
     return {
         "id": new_book.id,
         "title": new_book.title,

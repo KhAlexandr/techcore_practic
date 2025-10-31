@@ -6,6 +6,7 @@ from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
 
 from app.auth import verify_user
+from app.books.schemas import BookScheme
 from app.open_telemetry import setup_tracing
 
 
@@ -35,7 +36,10 @@ async def get_details(id: int):
     async with httpx.AsyncClient() as client:
         try:
             task1 = asyncio.create_task(
-                client.get(f"http://api:80/api/books/{id}", timeout=10.0,)
+                client.get(
+                    f"http://api:80/api/books/{id}",
+                    timeout=10.0,
+                )
             )
             task2 = asyncio.create_task(
                 client.get(f"http://api:80/api/api/products/{id}/reviews")
@@ -44,3 +48,16 @@ async def get_details(id: int):
             return {"book": book.json(), "review": review.json()}
         except Exception as e:
             return {"error": f"Ошибка Gateway: {str(e)}"}
+
+
+@app.post("/book")
+async def create_book(book: BookScheme):
+    async with httpx.AsyncClient() as client:
+        response = await client.post(
+            f"http://api:80/api/books/",
+            json=book.model_dump(),
+            headers={
+                "Content-Type": "application/json",
+            },
+        )
+    return response.json()

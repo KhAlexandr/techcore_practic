@@ -41,7 +41,7 @@ frozenlist==1.8.0
 googleapis-common-protos==1.71.0
 greenlet==3.2.4
 grpcio==1.76.0
-grpcio-tools
+grpcio-tools==1.76.0
 h11==0.16.0
 httpcore==1.0.9
 httpx==0.28.1
@@ -66,11 +66,14 @@ opentelemetry-exporter-otlp-proto-grpc
 opentelemetry-exporter-otlp-proto-http
 opentelemetry-exporter-zipkin
 opentelemetry-exporter-zipkin-json
+opentelemetry-exporter-zipkin-proto-http
 opentelemetry-instrumentation
+opentelemetry-instrumentation-aiokafka
 opentelemetry-instrumentation-asgi
 opentelemetry-instrumentation-celery
 opentelemetry-instrumentation-fastapi
 opentelemetry-instrumentation-httpx
+opentelemetry-instrumentation-pymongo
 opentelemetry-instrumentation-sqlalchemy
 opentelemetry-proto
 opentelemetry-sdk
@@ -84,6 +87,7 @@ pluggy==1.6.0
 prometheus_client==0.23.1
 prompt_toolkit==3.0.52
 propcache==0.4.1
+protobuf
 psycopg2==2.9.11
 pyasn1==0.6.1
 pybreaker==1.4.1

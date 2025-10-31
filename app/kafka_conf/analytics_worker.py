@@ -1,8 +1,20 @@
 from aiokafka import AIOKafkaConsumer
 
+from opentelemetry.instrumentation.aiokafka import AIOKafkaInstrumentor
+from opentelemetry.instrumentation.pymongo import PymongoInstrumentor
+
 from app.mongo_database import mongo_client
+from app.open_telemetry import setup_tracing
 
 import asyncio
+
+
+setup_tracing("analytics_worker")
+
+AIOKafkaInstrumentor().instrument()
+PymongoInstrumentor().instrument()
+# Я не знаю как сделать трассировку с асинхронным манго, везде написано что для него
+# нет асинхронного варианта
 
 
 async def consume_message():
