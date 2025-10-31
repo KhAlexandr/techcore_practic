@@ -6,10 +6,18 @@ import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 
+from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
+from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
+from opentelemetry.instrumentation.celery import CeleryInstrumentor
+
 from app.routers import books, reviews
 from app.celery_tasks.worker_service import router
 from app.kafka_conf.kafka_file import producer
+from app.open_telemetry import setup_tracing
+from app.database import engine
 
+
+setup_tracing("book-service")
 
 background_service = books.BackgroundService()
 
@@ -26,6 +34,11 @@ app = FastAPI(lifespan=lifespan)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+
+FastAPIInstrumentor.instrument_app(app)
+SQLAlchemyInstrumentor().instrument(engine=engine.sync_engine)
+CeleryInstrumentor().instrument()
 
 
 @app.middleware("http")

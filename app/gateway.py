@@ -2,10 +2,19 @@ from fastapi import FastAPI, Depends
 import httpx
 import asyncio
 
-from app.auth import verify_user
+from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
+from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
 
+from app.auth import verify_user
+from app.open_telemetry import setup_tracing
+
+
+setup_tracing("gateway-service")
 
 app = FastAPI()
+
+FastAPIInstrumentor.instrument_app(app)
+HTTPXClientInstrumentor().instrument()
 
 
 @app.get("/getaway/api/books/{book_id}")
