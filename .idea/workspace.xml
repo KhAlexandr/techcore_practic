@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-451: Задача - OpenTelemetry (Концепция)/&#10;Трейсинг (Zipkin)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/gateway.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/gateway.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/kafka_conf/analytics_worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/kafka_conf/analytics_worker.py" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-451: Задача - Анализ Асинхронного Трейса">
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/mongo_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/mongo_database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/open_telemetry.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/open_telemetry.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routers/books.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/books.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
@@ -121,14 +117,6 @@
       <workItem from="1761117614492" duration="11646000" />
       <workItem from="1761135704560" duration="3205000" />
       <workItem from="1761188764095" duration="8000" />
-    </task>
-    <task id="LOCAL-00005" summary="TASK-431: Задача - Функции и Области видимости">
-      <option name="closed" value="true" />
-      <created>1761120864229</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1761120864229</updated>
     </task>
     <task id="LOCAL-00006" summary="TASK-431: Задача - Модули и Пакеты">
       <option name="closed" value="true" />
@@ -514,7 +502,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761905695190</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="TASK-451: Задача - Анализ Асинхронного Трейса">
+      <option name="closed" value="true" />
+      <created>1761911268203</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1761911268203</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +528,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-443: Задача -  Pytest Coverage" />
     <MESSAGE value="TASK-445: Задача - &#10;httpx.AsyncClient (Пул соединений)/ asyncio.wait_for (Таймауты)" />
     <MESSAGE value="TASK-445: Задача - &#10;Backoff (Retry Policy)" />
     <MESSAGE value="TASK-445: Задача - &#10;PyBreaker (Circuit Breaker)" />
@@ -557,7 +552,8 @@
     <MESSAGE value="TASK-451: Задача - Gateway (Аутентификация)/ Gateway (Авторизация)" />
     <MESSAGE value="TASK-451: Задача - Gateway (Агрегация запросов)" />
     <MESSAGE value="TASK-451: Задача - OpenTelemetry (Концепция)/&#10;Трейсинг (Zipkin)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-451: Задача - OpenTelemetry (Концепция)/&#10;Трейсинг (Zipkin)" />
+    <MESSAGE value="TASK-451: Задача - Анализ Асинхронного Трейса" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-451: Задача - Анализ Асинхронного Трейса" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$faust_str.coverage" NAME="faust_str Coverage Results" MODIFIED="1761737310328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/kafka_conf" />

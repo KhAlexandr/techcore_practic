@@ -75,6 +75,7 @@ opentelemetry-instrumentation-fastapi
 opentelemetry-instrumentation-httpx
 opentelemetry-instrumentation-pymongo
 opentelemetry-instrumentation-sqlalchemy
+opentelemetry-exporter-prometheus
 opentelemetry-proto
 opentelemetry-sdk
 opentelemetry-semantic-conventions

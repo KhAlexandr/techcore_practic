@@ -8,6 +8,8 @@ from sqlalchemy import select
 from sqlalchemy.orm import selectinload
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from opentelemetry import metrics
+
 from app.authors.models import Author
 from app.books.schemas import BasBookScheme, BookScheme
 from app.books.models import Book
@@ -16,6 +18,12 @@ from app.authors.schemas import AuthorScheme
 from app.redis_database import redis_client
 from app.routers.author_service import AuthorService
 from app.kafka_conf.kafka_file import producer
+from app.open_telemetry import setup_metrics
+
+
+meter_provider = setup_metrics("book-service")
+
+meter = metrics.get_meter(__name__)
 
 
 async def get_db_session() -> AsyncGenerator[AsyncSession, None]:

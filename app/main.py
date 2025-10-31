@@ -4,12 +4,13 @@ import datetime
 import logging
 
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Response
 
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
 from opentelemetry.instrumentation.celery import CeleryInstrumentor
 from opentelemetry.instrumentation.aiokafka import AIOKafkaInstrumentor
+from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
 
 from app.routers import books, reviews
 from app.celery_tasks.worker_service import router
@@ -55,6 +56,14 @@ async def logs(request: Request, call_next):
 async def hello():
     await asyncio.sleep(1)
     return {"message": "Hello, World"}
+
+
+@app.get("/metrics")
+async def metrics_endpoint():
+    return Response(
+        generate_latest(),
+        media_type=CONTENT_TYPE_LATEST
+    )
 
 
 app.include_router(books.router)
