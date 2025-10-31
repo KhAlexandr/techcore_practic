@@ -3,7 +3,7 @@ volumes:
   redis_data:
   mongo_data:
   rabbitmq_data:
-
+  zipkin_data:
 
 services:
   db:
@@ -43,51 +43,6 @@ services:
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq/data
 
-  celery_worker:
-    build: .
-    container_name: celery_worker-container
-    command: celery -A app.celery_tasks.celery_apps worker --loglevel=info
-    depends_on:
-      - rabbitmq
-      - redis
-    env_file:
-      - .env
-    environment:
-      - PYTHONPATH=/app
-    healthcheck:
-      test: [ "CMD", "celery", "-A", "app.celery_tasks.celery_apps", "inspect", "ping" ]
-      interval: 10s
-      timeout: 5s
-      retries: 10
-      start_period: 30s
-
-  celery_beat:
-    build: .
-    container_name: celery_beat-container
-    command: celery -A app.celery_tasks.celery_apps beat --loglevel=info
-    depends_on:
-      - rabbitmq
-      - redis
-    environment:
-      - PYTHONPATH=/app
-
-  flower:
-    build: .
-    container_name: flower-container
-    command: celery -A app.celery_tasks.celery_apps flower --port=5555
-    ports:
-      - "5555:5555"
-    depends_on:
-      rabbitmq:
-        condition: service_started
-      redis:
-        condition: service_started
-      celery_worker:
-        condition: service_healthy
-    environment:
-      - PYTHONPATH=/app
-    restart: always
-
   zookeeper:
     image: confluentinc/cp-zookeeper:7.5.0
     hostname: zookeeper
@@ -114,8 +69,62 @@ services:
       retries: 10
       start_period: 30s
 
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+    environment:
+      ZIPKIN_ASSUMED_SPAN_DURATION_DAYS: 3
+    volumes:
+      - zipkin_data:/var/lib/zipkin/data
+
+  celery_worker:
+    image: techcore_practic-app:latest
+    container_name: celery_worker-container
+    command: celery -A app.celery_tasks.celery_apps worker --loglevel=info
+    depends_on:
+      - rabbitmq
+      - redis
+    env_file:
+      - .env
+    environment:
+      - PYTHONPATH=/app
+    healthcheck:
+      test: [ "CMD", "celery", "-A", "app.celery_tasks.celery_apps", "inspect", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  celery_beat:
+    image: techcore_practic-app:latest
+    container_name: celery_beat-container
+    command: celery -A app.celery_tasks.celery_apps beat --loglevel=info
+    depends_on:
+      - rabbitmq
+      - redis
+    environment:
+      - PYTHONPATH=/app
+
+  flower:
+    image: techcore_practic-app:latest
+    container_name: flower-container
+    command: celery -A app.celery_tasks.celery_apps flower --port=5555
+    ports:
+      - "5555:5555"
+    depends_on:
+      rabbitmq:
+        condition: service_started
+      redis:
+        condition: service_started
+      celery_worker:
+        condition: service_healthy
+    environment:
+      - PYTHONPATH=/app
+    restart: always
+
   analytics-worker:
-    build: .
+    image: techcore_practic-app:latest
     command: python3 -m app.kafka_conf.analytics_worker
     depends_on:
       kafka:
@@ -127,10 +136,50 @@ services:
       MONGODB_URL: mongodb://mongo:27017
 
   faust-worker:
-    build: .
+    image: techcore_practic-app:latest
     command: python -m app.kafka_conf.faust_str worker
     depends_on:
       kafka:
         condition: service_healthy
     environment:
       KAFKA_BROKER_URL: kafka:9092
+
+  traefik:
+    image: traefik:v2.10
+    command:
+      - --api.dashboard=true
+      - --providers.docker=true
+      - --entrypoints.web.address=:80
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  api:
+    image: techcore_practic-app:latest
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.api.rule=Host(`localhost`) && PathPrefix(`/`)"
+      - "traefik.http.services.api.loadbalancer.server.port=80"
+    depends_on:
+      db:
+        condition: service_started
+      redis:
+          condition: service_started
+      kafka:
+          condition: service_healthy
+    environment:
+        DATABASE_URL: postgresql+asyncpg://fastapi_user:mysecretpassword@db:5432/fastapi
+        REDIS_HOST: redis
+        KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+        MONGODB_URL: mongodb://admin:password@mongo:27017
+
+#  gateway:
+#    image: techcore_practic-app:latest
+#    command: uvicorn app.gateway:app --host 0.0.0.0 --port 8000
+#    ports:
+#      - "8080:8000"
+#    depends_on:
+#      api:
+#        condition: service_started

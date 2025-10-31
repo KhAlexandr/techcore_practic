@@ -3,7 +3,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import asyncio
 
 
-mongo_client = AsyncIOMotorClient("mongodb://admin:password@localhost:27017")
+mongo_client = AsyncIOMotorClient("mongodb://admin:password@mongo:27017")
 
 
 async def ping_mongo_client():

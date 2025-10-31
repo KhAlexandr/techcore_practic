@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-449: Задача - aiokafka (Альтернативный Async-клиент)">
-      <change afterPath="$PROJECT_DIR$/app/kafka_conf/faust_str.py" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-451: Задача - Gateway (Агрегация запросов)">
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/TASK-449" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,7 +75,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/TASK-449",
+    "git-widget-placeholder": "feature/TASK-451",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -115,30 +113,6 @@
       <workItem from="1761117614492" duration="11646000" />
       <workItem from="1761135704560" duration="3205000" />
       <workItem from="1761188764095" duration="8000" />
-    </task>
-    <task id="LOCAL-00001" summary="TASK-431: Задача - Настройка виртуального окружения">
-      <option name="closed" value="true" />
-      <created>1761117907281</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1761117907281</updated>
-    </task>
-    <task id="LOCAL-00002" summary="TASK-431: Задача - Базовый синтаксис и типы(Калькулятор)">
-      <option name="closed" value="true" />
-      <created>1761118917111</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1761118917111</updated>
-    </task>
-    <task id="LOCAL-00003" summary="TASK-431: Задача - Структуры данных (List и Dict)">
-      <option name="closed" value="true" />
-      <created>1761119641181</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1761119641181</updated>
     </task>
     <task id="LOCAL-00004" summary="TASK-431: List Comprehensions (Списковые включения)">
       <option name="closed" value="true" />
@@ -492,7 +466,47 @@
       <option name="project" value="LOCAL" />
       <updated>1761735170185</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="TASK-449: Задача - Faust-Streaming (Python Kafka Streams)">
+      <option name="closed" value="true" />
+      <created>1761738292800</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1761738292800</updated>
+    </task>
+    <task id="LOCAL-00049" summary="TASK-451: Задача - Финальный docker-compose.ym/Dockerfile для Python/FastAPI">
+      <option name="closed" value="true" />
+      <created>1761816274860</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1761816274860</updated>
+    </task>
+    <task id="LOCAL-00050" summary="TASK-451: Задача - Gateway (Маршрутизация)/  Gateway (Service Discovery)">
+      <option name="closed" value="true" />
+      <created>1761822952517</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1761822952517</updated>
+    </task>
+    <task id="LOCAL-00051" summary="TASK-451: Задача - Gateway (Аутентификация)/ Gateway (Авторизация)">
+      <option name="closed" value="true" />
+      <created>1761894601078</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1761894601078</updated>
+    </task>
+    <task id="LOCAL-00052" summary="TASK-451: Задача - Gateway (Агрегация запросов)">
+      <option name="closed" value="true" />
+      <created>1761897329809</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1761897329809</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -510,13 +524,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-433: Задача - multiprocessing.Pool" />
-    <MESSAGE value="TASK-443: Задача -  pytest (Основы)" />
-    <MESSAGE value="TASK-443: Задача -  Фикстуры (@pytest.fixture)" />
-    <MESSAGE value="TASK-443: Задача -  Мокинг (pytest-mock) mocked" />
-    <MESSAGE value="TASK-443: Задача -  FastAPI TestClient (Интеграция)" />
-    <MESSAGE value="TASK-443: Задача -  Переопределение DI (Depends) в тестах" />
-    <MESSAGE value="TASK-443: Задача -  Тестирование 422 (Валидация Pydantic)" />
     <MESSAGE value="TASK-443: Задача -  pytest-asyncio/httpx (Тестирование async API)" />
     <MESSAGE value="TASK-443: Задача -  Pytest Coverage" />
     <MESSAGE value="TASK-445: Задача - &#10;httpx.AsyncClient (Пул соединений)/ asyncio.wait_for (Таймауты)" />
@@ -535,7 +542,14 @@
     <MESSAGE value="TASK-449: Задача - Consumer Groups (Многопоточность)" />
     <MESSAGE value="TASK-449: Задача - enable.auto.commit=False (Ручное подтверждение)" />
     <MESSAGE value="TASK-449: Задача - aiokafka (Альтернативный Async-клиент)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-449: Задача - aiokafka (Альтернативный Async-клиент)" />
+    <MESSAGE value="TASK-449: Задача - Faust-Streaming (Python Kafka Streams)" />
+    <MESSAGE value="TASK-451: Задача - Финальный docker-compose.ym/Dockerfile для Python/FastAPI/Добавление сервисов в docker-compose" />
+    <MESSAGE value="TASK-451: Задача - Финальный docker-compose.ym/Dockerfile для Python/FastAPI/" />
+    <MESSAGE value="TASK-451: Задача - Финальный docker-compose.ym/Dockerfile для Python/FastAPI/Добавление сервисов в docker-compose" />
+    <MESSAGE value="TASK-451: Задача - Gateway (Маршрутизация)/  Gateway (Service Discovery)" />
+    <MESSAGE value="TASK-451: Задача - Gateway (Аутентификация)/ Gateway (Авторизация)" />
+    <MESSAGE value="TASK-451: Задача - Gateway (Агрегация запросов)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-451: Задача - Gateway (Агрегация запросов)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$faust_str.coverage" NAME="faust_str Coverage Results" MODIFIED="1761737310328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/kafka_conf" />

@@ -4,15 +4,14 @@ from app.mongo_database import mongo_client
 
 import asyncio
 
-consumer = AIOKafkaConsumer(
-    "book_views",
-    bootstrap_servers="kafka:9092",
-    group_id="analytics",
-    enable_auto_commit=False,
-)
-
 
 async def consume_message():
+    consumer = AIOKafkaConsumer(
+        "book_views",
+        bootstrap_servers="kafka:9092",
+        group_id="analytics",
+        enable_auto_commit=False,
+    )
     db = mongo_client.analytics
     collection = db.book_views
     await consumer.start()
