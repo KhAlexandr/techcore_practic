@@ -17,6 +17,7 @@ from app.celery_tasks.worker_service import router
 from app.kafka_conf.kafka_file import producer
 from app.open_telemetry import setup_tracing
 from app.database import engine
+from app.logging import logger
 
 
 setup_tracing("book-service")
@@ -34,9 +35,6 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
 
 FastAPIInstrumentor.instrument_app(app)
 SQLAlchemyInstrumentor().instrument(engine=engine.sync_engine)
@@ -46,9 +44,19 @@ AIOKafkaInstrumentor().instrument()
 
 @app.middleware("http")
 async def logs(request: Request, call_next):
-
-    logger.info(f"{request.method}, {request.url}, {datetime.datetime.now()}")
+    logger.info("http_request",
+                method=request.method,
+                url=str(request.url),
+                path=request.url.path,
+                query_params=dict(request.query_params)
+                )
     response = await call_next(request)
+    logger.info("http_response",
+                method=request.method,
+                path=request.url.path,
+                status_code=response.status_code,
+                response_size=response.headers.get("content-length", 0)
+                )
     return response
 
 

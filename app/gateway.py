@@ -11,6 +11,7 @@ from app.auth import verify_user
 from app.books.schemas import BookScheme
 from app.open_telemetry import setup_tracing
 from app.open_telemetry import setup_metrics
+from app.logging import logger
 
 
 setup_tracing("gateway-service")
@@ -20,6 +21,8 @@ app = FastAPI()
 
 FastAPIInstrumentor.instrument_app(app)
 HTTPXClientInstrumentor().instrument()
+
+logger.info("service_started", service_name="gateway")
 
 
 @app.get("/metrics")
@@ -61,6 +64,13 @@ async def get_details(id: int):
 
 @app.post("/book")
 async def create_book(book: BookScheme):
+    log = logger.bind(
+        operation="create_book_via_gateway",
+        book_title=book.title,
+        author_id=book.author_id
+    )
+
+    log.info("gateway_request_started")
     async with httpx.AsyncClient() as client:
         response = await client.post(
             f"http://api:80/api/books/",
@@ -69,4 +79,8 @@ async def create_book(book: BookScheme):
                 "Content-Type": "application/json",
             },
         )
+        log.info("book_service_response",
+                 status_code=response.status_code,
+                 response_time_ms=response.elapsed.total_seconds() * 1000)
+        log.info("book_created_successfully")
     return response.json()

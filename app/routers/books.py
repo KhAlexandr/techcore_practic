@@ -19,6 +19,7 @@ from app.redis_database import redis_client
 from app.routers.author_service import AuthorService
 from app.kafka_conf.kafka_file import producer
 from app.open_telemetry import setup_metrics
+from app.logging import logger
 
 
 meter_provider = setup_metrics("book-service")
@@ -137,9 +138,13 @@ async def get_all_books(session: AsyncSession = Depends(get_db_session)):
 async def create_book(
     book: BookScheme, session: AsyncSession = Depends(get_db_session)
 ):
+    log = logger.bind(operation="create_book", author_id=book.author_id)
+    log.info("book_creation_started", title=book.title)
     new_book = await book_repo.create(
         title=book.title, year=book.year, author_id=book.author_id, session=session
     )
+    log.info("book_created", book_id=new_book.id, title=new_book.title)
+    book_counter.add(1, {"operation": "create", "author_id": str(book.author_id)})
     book_counter.add(1, {"operation": "create", "author_id": str(book.author_id)})
     await producer.send_and_wait(
         topic="book_views",
