@@ -12,9 +12,19 @@
     {
       "title": "Memory Usage",
       "type": "stat",
+      "targets": [
+        {
+          "expr": "process_resident_memory_bytes",
+          "legendFormat": "{{job}}"
+        }
+      ]
+    },
+    {
+      "title": "Books Created / Minute",
+      "type": "stat",
       "targets": [{
-        "expr": "process_resident_memory_bytes",
-        "legendFormat": "{{job}}"
+        "expr": "sum(rate(books_created_total[1m])) * 60",
+        "legendFormat": "books/min"
       }]
     }
   ]

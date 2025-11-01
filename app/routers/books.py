@@ -25,6 +25,12 @@ meter_provider = setup_metrics("book-service")
 
 meter = metrics.get_meter(__name__)
 
+book_counter = meter.create_counter(
+    name="books_created_total",
+    description="Количество созданых книг",
+    unit="1"
+)
+
 
 async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
     async with session_maker() as session:
@@ -134,6 +140,7 @@ async def create_book(
     new_book = await book_repo.create(
         title=book.title, year=book.year, author_id=book.author_id, session=session
     )
+    book_counter.add(1, {"operation": "create", "author_id": str(book.author_id)})
     await producer.send_and_wait(
         topic="book_views",
         key=str(new_book.id).encode("utf-8"),
