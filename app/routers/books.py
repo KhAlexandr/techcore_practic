@@ -8,6 +8,8 @@ from sqlalchemy import select
 from sqlalchemy.orm import selectinload
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from opentelemetry import metrics
+
 from app.authors.models import Author
 from app.books.schemas import BasBookScheme, BookScheme
 from app.books.models import Book
@@ -16,6 +18,17 @@ from app.authors.schemas import AuthorScheme
 from app.redis_database import redis_client
 from app.routers.author_service import AuthorService
 from app.kafka_conf.kafka_file import producer
+from app.open_telemetry import setup_metrics
+from app.logging import logger
+
+
+meter_provider = setup_metrics("book-service")
+
+meter = metrics.get_meter(__name__)
+
+book_counter = meter.create_counter(
+    name="books_created_total", description="Количество созданых книг", unit="1"
+)
 
 
 async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
@@ -123,8 +136,18 @@ async def get_all_books(session: AsyncSession = Depends(get_db_session)):
 async def create_book(
     book: BookScheme, session: AsyncSession = Depends(get_db_session)
 ):
+    log = logger.bind(operation="create_book", author_id=book.author_id)
+    log.info("book_creation_started", title=book.title)
     new_book = await book_repo.create(
         title=book.title, year=book.year, author_id=book.author_id, session=session
+    )
+    log.info("book_created", book_id=new_book.id, title=new_book.title)
+    book_counter.add(1, {"operation": "create", "author_id": str(book.author_id)})
+    book_counter.add(1, {"operation": "create", "author_id": str(book.author_id)})
+    await producer.send_and_wait(
+        topic="book_views",
+        key=str(new_book.id).encode("utf-8"),
+        value=f"Создана новая книга с названием {new_book.title}".encode("utf-8"),
     )
     return {
         "id": new_book.id,

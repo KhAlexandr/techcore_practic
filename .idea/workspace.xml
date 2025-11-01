@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-451: Задача - Gateway (Агрегация запросов)">
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-451: Задача - Логи (Structlog + Loki)">
+      <change afterPath="$PROJECT_DIR$/app/breaker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/gateway.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/gateway.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/TASK-449" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,7 +76,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/TASK-451",
+    "git-widget-placeholder": "feature/TASK-453",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -87,6 +88,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/routers" />
       <recent name="$PROJECT_DIR$/module3_async" />
       <recent name="$PROJECT_DIR$/async_python" />
@@ -113,62 +115,6 @@
       <workItem from="1761117614492" duration="11646000" />
       <workItem from="1761135704560" duration="3205000" />
       <workItem from="1761188764095" duration="8000" />
-    </task>
-    <task id="LOCAL-00004" summary="TASK-431: List Comprehensions (Списковые включения)">
-      <option name="closed" value="true" />
-      <created>1761119826618</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1761119826618</updated>
-    </task>
-    <task id="LOCAL-00005" summary="TASK-431: Задача - Функции и Области видимости">
-      <option name="closed" value="true" />
-      <created>1761120864229</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1761120864229</updated>
-    </task>
-    <task id="LOCAL-00006" summary="TASK-431: Задача - Модули и Пакеты">
-      <option name="closed" value="true" />
-      <created>1761121145302</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1761121145302</updated>
-    </task>
-    <task id="LOCAL-00007" summary="TASK-431: Задача - Работа с файлами и JSON">
-      <option name="closed" value="true" />
-      <created>1761121745452</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1761121745452</updated>
-    </task>
-    <task id="LOCAL-00008" summary="TASK-431: Задача - Обработка исключений (try/except)">
-      <option name="closed" value="true" />
-      <created>1761122311895</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1761122311895</updated>
-    </task>
-    <task id="LOCAL-00009" summary="TASK-431: Задача - Библиотека requests">
-      <option name="closed" value="true" />
-      <created>1761123464258</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1761123464258</updated>
-    </task>
-    <task id="LOCAL-00010" summary="TASK-431: Задача - Отладка (pdb или IDE): до нахождения ошибки">
-      <option name="closed" value="true" />
-      <created>1761124318161</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1761124318161</updated>
     </task>
     <task id="LOCAL-00011" summary="TASK-431: Задача - Отладка (pdb или IDE): нашел ошибку через точку в IDE(PyCharm)">
       <option name="closed" value="true" />
@@ -506,7 +452,63 @@
       <option name="project" value="LOCAL" />
       <updated>1761897329809</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="TASK-451: Задача - OpenTelemetry (Концепция)/&#10;Трейсинг (Zipkin)">
+      <option name="closed" value="true" />
+      <created>1761905695190</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1761905695190</updated>
+    </task>
+    <task id="LOCAL-00054" summary="TASK-451: Задача - Анализ Асинхронного Трейса">
+      <option name="closed" value="true" />
+      <created>1761911268203</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1761911268203</updated>
+    </task>
+    <task id="LOCAL-00055" summary="TASK-451: Задача - Метрики (Prometheus)">
+      <option name="closed" value="true" />
+      <created>1761916804884</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1761916804884</updated>
+    </task>
+    <task id="LOCAL-00056" summary="TASK-451: Задача - Prometheus &amp; Grafana (docker-compose)">
+      <option name="closed" value="true" />
+      <created>1761981604786</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1761981604786</updated>
+    </task>
+    <task id="LOCAL-00057" summary="TASK-451: Задача - Дашборд в Grafana">
+      <option name="closed" value="true" />
+      <created>1761982975485</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1761982975485</updated>
+    </task>
+    <task id="LOCAL-00058" summary="TASK-451: Задача - Кастомные Метрики (Otel)">
+      <option name="closed" value="true" />
+      <created>1761984823771</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1761984823771</updated>
+    </task>
+    <task id="LOCAL-00059" summary="TASK-451: Задача - Логи (Structlog + Loki)">
+      <option name="closed" value="true" />
+      <created>1761987885607</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1761987885607</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -524,13 +526,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-443: Задача -  pytest-asyncio/httpx (Тестирование async API)" />
-    <MESSAGE value="TASK-443: Задача -  Pytest Coverage" />
-    <MESSAGE value="TASK-445: Задача - &#10;httpx.AsyncClient (Пул соединений)/ asyncio.wait_for (Таймауты)" />
-    <MESSAGE value="TASK-445: Задача - &#10;Backoff (Retry Policy)" />
-    <MESSAGE value="TASK-445: Задача - &#10;PyBreaker (Circuit Breaker)" />
-    <MESSAGE value="TASK-445: Задача - &#10;Тестирование Circuit Breaker" />
-    <MESSAGE value="TASK-445: Задача - &#10;Fallback (Запасной ответ)" />
     <MESSAGE value="TASK-445: Задача - &#10;asyncio.Semaphore (Bulkhead)" />
     <MESSAGE value="TASK-445: Задача - &#10;asyncio.gather (Параллельные вызовы)" />
     <MESSAGE value="TASK-445: Задача - AIOHTTP (Альтернатива httpx)" />
@@ -549,7 +544,14 @@
     <MESSAGE value="TASK-451: Задача - Gateway (Маршрутизация)/  Gateway (Service Discovery)" />
     <MESSAGE value="TASK-451: Задача - Gateway (Аутентификация)/ Gateway (Авторизация)" />
     <MESSAGE value="TASK-451: Задача - Gateway (Агрегация запросов)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-451: Задача - Gateway (Агрегация запросов)" />
+    <MESSAGE value="TASK-451: Задача - OpenTelemetry (Концепция)/&#10;Трейсинг (Zipkin)" />
+    <MESSAGE value="TASK-451: Задача - Анализ Асинхронного Трейса" />
+    <MESSAGE value="TASK-451: Задача - Метрики (Prometheus)" />
+    <MESSAGE value="TASK-451: Задача - Prometheus &amp; Grafana (docker-compose)" />
+    <MESSAGE value="TASK-451: Задача - Дашборд в Grafana" />
+    <MESSAGE value="TASK-451: Задача - Кастомные Метрики (Otel)" />
+    <MESSAGE value="TASK-451: Задача - Логи (Structlog + Loki)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-451: Задача - Логи (Structlog + Loki)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$faust_str.coverage" NAME="faust_str Coverage Results" MODIFIED="1761737310328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/kafka_conf" />

@@ -1,0 +1,31 @@
+{
+  "title": "Python Services Monitoring",
+  "panels": [
+    {
+      "title": "CPU Usage",
+      "type": "stat",
+      "targets": [{
+        "expr": "rate(process_cpu_seconds_total[5m]) * 100",
+        "legendFormat": "{{job}}"
+      }]
+    },
+    {
+      "title": "Memory Usage",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "process_resident_memory_bytes",
+          "legendFormat": "{{job}}"
+        }
+      ]
+    },
+    {
+      "title": "Books Created / Minute",
+      "type": "stat",
+      "targets": [{
+        "expr": "sum(rate(books_created_total[1m])) * 60",
+        "legendFormat": "books/min"
+      }]
+    }
+  ]
+}
