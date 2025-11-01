@@ -1,21 +1,30 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, Response
 import httpx
 import asyncio
 
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
 
+from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
+
 from app.auth import verify_user
 from app.books.schemas import BookScheme
 from app.open_telemetry import setup_tracing
+from app.open_telemetry import setup_metrics
 
 
 setup_tracing("gateway-service")
+setup_metrics("gateway-service")
 
 app = FastAPI()
 
 FastAPIInstrumentor.instrument_app(app)
 HTTPXClientInstrumentor().instrument()
+
+
+@app.get("/metrics")
+async def metrics_endpoint():
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
 
 @app.get("/getaway/api/books/{book_id}")
