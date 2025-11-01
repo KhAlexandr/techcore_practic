@@ -15,7 +15,7 @@ def setup_logging(service_name: str):
             structlog.processors.StackInfoRenderer(),
             structlog.processors.format_exc_info,
             structlog.processors.UnicodeDecoder(),
-            structlog.processors.JSONRenderer()
+            structlog.processors.JSONRenderer(),
         ],
         wrapper_class=structlog.stdlib.BoundLogger,
         logger_factory=structlog.stdlib.LoggerFactory(),
@@ -23,7 +23,7 @@ def setup_logging(service_name: str):
     )
 
     handler = logging.StreamHandler(sys.stdout)
-    handler.setFormatter(logging.Formatter('%(message)s'))
+    handler.setFormatter(logging.Formatter("%(message)s"))
 
     root_logger = logging.getLogger()
     root_logger.addHandler(handler)

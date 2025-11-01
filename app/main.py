@@ -44,19 +44,21 @@ AIOKafkaInstrumentor().instrument()
 
 @app.middleware("http")
 async def logs(request: Request, call_next):
-    logger.info("http_request",
-                method=request.method,
-                url=str(request.url),
-                path=request.url.path,
-                query_params=dict(request.query_params)
-                )
+    logger.info(
+        "http_request",
+        method=request.method,
+        url=str(request.url),
+        path=request.url.path,
+        query_params=dict(request.query_params),
+    )
     response = await call_next(request)
-    logger.info("http_response",
-                method=request.method,
-                path=request.url.path,
-                status_code=response.status_code,
-                response_size=response.headers.get("content-length", 0)
-                )
+    logger.info(
+        "http_response",
+        method=request.method,
+        path=request.url.path,
+        status_code=response.status_code,
+        response_size=response.headers.get("content-length", 0),
+    )
     return response
 
 
@@ -68,10 +70,7 @@ async def hello():
 
 @app.get("/metrics")
 async def metrics_endpoint():
-    return Response(
-        generate_latest(),
-        media_type=CONTENT_TYPE_LATEST
-    )
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
 
 app.include_router(books.router)

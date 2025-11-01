@@ -27,9 +27,7 @@ meter_provider = setup_metrics("book-service")
 meter = metrics.get_meter(__name__)
 
 book_counter = meter.create_counter(
-    name="books_created_total",
-    description="Количество созданых книг",
-    unit="1"
+    name="books_created_total", description="Количество созданых книг", unit="1"
 )
 
 

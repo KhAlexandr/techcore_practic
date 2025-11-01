@@ -36,10 +36,7 @@ def setup_metrics(service_name: str):
     resource = Resource.create({"service.name": service_name})
     reader = PrometheusMetricReader()
 
-    meter_provider = MeterProvider(
-        resource=resource,
-        metric_readers=[reader]
-    )
+    meter_provider = MeterProvider(resource=resource, metric_readers=[reader])
     metrics.set_meter_provider(meter_provider)
 
     return meter_provider
