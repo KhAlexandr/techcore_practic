@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-455: Задача - Service (Postgres)">
-      <change afterPath="$PROJECT_DIR$/module13_kubernetes/docker-fastapi-book-service.md" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-455: Задача - ConfigMap (Конфигурация FastAPI)">
+      <change afterPath="$PROJECT_DIR$/fastapi-deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fastapi-service.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/redis-deployment.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,23 +121,7 @@
       <workItem from="1761135704560" duration="3205000" />
       <workItem from="1761188764095" duration="8000" />
       <workItem from="1762196499524" duration="140000" />
-      <workItem from="1762238007092" duration="6864000" />
-    </task>
-    <task id="LOCAL-00018" summary="TASK-433: fix/ Настройка виртуального окружения">
-      <option name="closed" value="true" />
-      <created>1761135566036</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1761135566036</updated>
-    </task>
-    <task id="LOCAL-00019" summary="TASK-433: Задача - Контекстные менеджеры (with)">
-      <option name="closed" value="true" />
-      <created>1761136072178</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1761136072178</updated>
+      <workItem from="1762238007092" duration="10043000" />
     </task>
     <task id="LOCAL-00020" summary="TASK-433: Задача - Концепция: GIL (Global Interpreter Lock)">
       <option name="closed" value="true" />
@@ -513,7 +499,23 @@
       <option name="project" value="LOCAL" />
       <updated>1762244288086</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="TASK-455: Задача - Сборка Python/FastAPI образа для Minikube">
+      <option name="closed" value="true" />
+      <created>1762244923928</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1762244923928</updated>
+    </task>
+    <task id="LOCAL-00068" summary="TASK-455: Задача - ConfigMap (Конфигурация FastAPI)">
+      <option name="closed" value="true" />
+      <created>1762245139461</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1762245139461</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,8 +533,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-449: Задача - Faust-Streaming (Python Kafka Streams)" />
-    <MESSAGE value="TASK-451: Задача - Финальный docker-compose.ym/Dockerfile для Python/FastAPI/Добавление сервисов в docker-compose" />
     <MESSAGE value="TASK-451: Задача - Финальный docker-compose.ym/Dockerfile для Python/FastAPI/" />
     <MESSAGE value="TASK-451: Задача - Финальный docker-compose.ym/Dockerfile для Python/FastAPI/Добавление сервисов в docker-compose" />
     <MESSAGE value="TASK-451: Задача - Gateway (Маршрутизация)/  Gateway (Service Discovery)" />
@@ -556,7 +556,9 @@
     <MESSAGE value="TASK-455: Задача - PersistentVolumeClaim (PVC) для Postgres" />
     <MESSAGE value="TASK-455: Задача - Secret (Пароли)" />
     <MESSAGE value="TASK-455: Задача - Service (Postgres)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-455: Задача - Service (Postgres)" />
+    <MESSAGE value="TASK-455: Задача - Сборка Python/FastAPI образа для Minikube" />
+    <MESSAGE value="TASK-455: Задача - ConfigMap (Конфигурация FastAPI)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-455: Задача - ConfigMap (Конфигурация FastAPI)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$faust_str.coverage" NAME="faust_str Coverage Results" MODIFIED="1761737310328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/kafka_conf" />
