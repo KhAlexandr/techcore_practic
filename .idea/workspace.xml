@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-451: Задача - Логи (Structlog + Loki)">
-      <change afterPath="$PROJECT_DIR$/app/breaker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/gateway.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/gateway.py" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-451: Задача - PyBreaker + OTel/Celery + Flower">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,44 +47,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python tests.Python tests in gil_esse.py.executor": "Run",
-    "Python tests.Python tests in test_app.py.executor": "Run",
-    "Python.analytics_worker.executor": "Run",
-    "Python.author_aiohttp.executor": "Run",
-    "Python.author_service.executor": "Run",
-    "Python.book.executor": "Run",
-    "Python.calc.executor": "Run",
-    "Python.conftest.executor": "Run",
-    "Python.decorators.executor": "Run",
-    "Python.exeption.executor": "Run",
-    "Python.faust_str.executor": "Run",
-    "Python.find_error.executor": "Run",
-    "Python.functions.executor": "Run",
-    "Python.gil_esse.executor": "Run",
-    "Python.json_file.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.multiprocessin_pool.executor": "Run",
-    "Python.multiprocessing_process.executor": "Run",
-    "Python.multiprocessing_queue.executor": "Run",
-    "Python.requests_file.executor": "Run",
-    "Python.students.executor": "Run",
-    "Python.test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/TASK-453",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests in gil_esse.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_app.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.analytics_worker.executor&quot;: &quot;Run&quot;,
+    &quot;Python.author_aiohttp.executor&quot;: &quot;Run&quot;,
+    &quot;Python.author_service.executor&quot;: &quot;Run&quot;,
+    &quot;Python.book.executor&quot;: &quot;Run&quot;,
+    &quot;Python.calc.executor&quot;: &quot;Run&quot;,
+    &quot;Python.conftest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.decorators.executor&quot;: &quot;Run&quot;,
+    &quot;Python.exeption.executor&quot;: &quot;Run&quot;,
+    &quot;Python.faust_str.executor&quot;: &quot;Run&quot;,
+    &quot;Python.find_error.executor&quot;: &quot;Run&quot;,
+    &quot;Python.functions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gil_esse.executor&quot;: &quot;Run&quot;,
+    &quot;Python.json_file.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.multiprocessin_pool.executor&quot;: &quot;Run&quot;,
+    &quot;Python.multiprocessing_process.executor&quot;: &quot;Run&quot;,
+    &quot;Python.multiprocessing_queue.executor&quot;: &quot;Run&quot;,
+    &quot;Python.requests_file.executor&quot;: &quot;Run&quot;,
+    &quot;Python.students.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/TASK-453&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app" />
@@ -98,8 +97,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.26830.99" />
-        <option value="bundled-python-sdk-164cda30dcd9-0af03a5fa574-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26830.99" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.27397.106" />
+        <option value="bundled-python-sdk-4e2b1448bda8-9a97661f3031-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.27397.106" />
       </set>
     </attachedChunks>
   </component>
@@ -115,14 +114,8 @@
       <workItem from="1761117614492" duration="11646000" />
       <workItem from="1761135704560" duration="3205000" />
       <workItem from="1761188764095" duration="8000" />
-    </task>
-    <task id="LOCAL-00011" summary="TASK-431: Задача - Отладка (pdb или IDE): нашел ошибку через точку в IDE(PyCharm)">
-      <option name="closed" value="true" />
-      <created>1761124374706</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1761124374706</updated>
+      <workItem from="1762196499524" duration="140000" />
+      <workItem from="1762238007092" duration="416000" />
     </task>
     <task id="LOCAL-00012" summary="TASK-433: Задача - Классы и __init__">
       <option name="closed" value="true" />
@@ -508,7 +501,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761987885607</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="TASK-451: Задача - PyBreaker + OTel/Celery + Flower">
+      <option name="closed" value="true" />
+      <created>1761990661636</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1761990661636</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,7 +527,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-445: Задача - &#10;asyncio.Semaphore (Bulkhead)" />
     <MESSAGE value="TASK-445: Задача - &#10;asyncio.gather (Параллельные вызовы)" />
     <MESSAGE value="TASK-445: Задача - AIOHTTP (Альтернатива httpx)" />
     <MESSAGE value="TASK-449: Задача - Message Bus (RabbitMQ) vs. Event Stream (Kafka)" />
@@ -551,7 +551,8 @@
     <MESSAGE value="TASK-451: Задача - Дашборд в Grafana" />
     <MESSAGE value="TASK-451: Задача - Кастомные Метрики (Otel)" />
     <MESSAGE value="TASK-451: Задача - Логи (Structlog + Loki)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-451: Задача - Логи (Structlog + Loki)" />
+    <MESSAGE value="TASK-451: Задача - PyBreaker + OTel/Celery + Flower" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-451: Задача - PyBreaker + OTel/Celery + Flower" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$faust_str.coverage" NAME="faust_str Coverage Results" MODIFIED="1761737310328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/kafka_conf" />
