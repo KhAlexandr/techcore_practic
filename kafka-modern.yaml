@@ -1,0 +1,31 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: Kafka
+metadata:
+  name: my-kafka-cluster
+spec:
+  kafka:
+    version: 4.1.0
+    template:
+      pod:
+        metadata:
+          labels:
+            app: kafka-helm
+    listeners:
+      - name: plain
+        port: 9092
+        type: internal
+        tls: false
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaNodePool
+metadata:
+  name: controller-pool
+  labels:
+    strimzi.io/cluster: my-kafka-cluster
+spec:
+  replicas: 3
+  roles:
+    - controller
+    - broker
+  storage:
+    type: ephemeral

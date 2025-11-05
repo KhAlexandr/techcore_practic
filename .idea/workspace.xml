@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-457: Задача - Helm (Менеджер пакетов)">
-      <change afterPath="$PROJECT_DIR$/module14_migration_kubernetis/helm-pods.md" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-457: Задача - Инфраструктуры (Helm)">
+      <change afterPath="$PROJECT_DIR$/book-service-configmap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/celery-worker-configmap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-configmap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-modern.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rabbitmq.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/redis-configmap.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,14 +125,6 @@
       <workItem from="1761188764095" duration="8000" />
       <workItem from="1762196499524" duration="140000" />
       <workItem from="1762238007092" duration="10043000" />
-    </task>
-    <task id="LOCAL-00021" summary="TASK-433: Задача - multiprocessing.Process">
-      <option name="closed" value="true" />
-      <created>1761191167557</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1761191167557</updated>
     </task>
     <task id="LOCAL-00022" summary="TASK-433: Задача - multiprocessing.Pool">
       <option name="closed" value="true" />
@@ -513,7 +510,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762332898561</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="TASK-457: Задача - Инфраструктуры (Helm)">
+      <option name="closed" value="true" />
+      <created>1762334393672</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1762334393672</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-451: Задача - Финальный docker-compose.ym/Dockerfile для Python/FastAPI/Добавление сервисов в docker-compose" />
     <MESSAGE value="TASK-451: Задача - Gateway (Маршрутизация)/  Gateway (Service Discovery)" />
     <MESSAGE value="TASK-451: Задача - Gateway (Аутентификация)/ Gateway (Авторизация)" />
     <MESSAGE value="TASK-451: Задача - Gateway (Агрегация запросов)" />
@@ -556,7 +560,8 @@
     <MESSAGE value="TASK-455: Задача - Сборка Python/FastAPI образа для Minikube" />
     <MESSAGE value="TASK-455: Задача - ConfigMap (Конфигурация FastAPI)" />
     <MESSAGE value="TASK-457: Задача - Helm (Менеджер пакетов)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-457: Задача - Helm (Менеджер пакетов)" />
+    <MESSAGE value="TASK-457: Задача - Инфраструктуры (Helm)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-457: Задача - Инфраструктуры (Helm)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$faust_str.coverage" NAME="faust_str Coverage Results" MODIFIED="1761737310328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/kafka_conf" />
