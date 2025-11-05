@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orderworker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orderworker
+  template:
+    metadata:
+      labels:
+        app: orderworker
+    spec:
+      containers:
+      - name: orderworker
+        image: my-app:latest
+        imagePullPolicy: IfNotPresent
+        envFrom:
+        - configMapRef:
+            name: celery-worker-config
+        command: [ "celery" ]
+        args: [ "-A", "app.celery_tasks.celery_apps", "worker", "--loglevel=info" ]

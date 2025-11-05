@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+      containers:
+      - name: gateway
+        image: my-app:latest
+        imagePullPolicy: IfNotPresent
+        command: [ "uvicorn" ]
+        args: [ "app.gateway:app", "--host", "0.0.0.0", "--port", "8000" ]
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+            name: book-service-config
+        - secretRef:
+            name: postgres-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway
+spec:
+  type: ClusterIP
+  selector:
+    app: gateway
+  ports:
+  - port: 8000
+    targetPort: 8000

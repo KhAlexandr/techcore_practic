@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analyticsworker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: analyticsworker
+  template:
+    metadata:
+      labels:
+        app: analyticsworker
+    spec:
+      containers:
+      - name: analyticsworker
+        image: my-app:latest
+        imagePullPolicy: IfNotPresent
+        command: [ "python3" ]
+        args: [ "-m", "app.kafka_conf.analytics_worker" ]
+        envFrom:
+        - configMapRef:
+            name: kafka-config
+        - configMapRef:
+            name: book-service-config
