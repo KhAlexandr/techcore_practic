@@ -68,6 +68,11 @@ async def hello():
     return {"message": "Hello, World"}
 
 
+@app.get("/healthz")
+async def health_check():
+    return {"status": "healthy"}
+
+
 @app.get("/metrics")
 async def metrics_endpoint():
     return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
