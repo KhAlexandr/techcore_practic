@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-457: Задача - Развертывание всех Python-сервисов">
-      <change afterPath="$PROJECT_DIR$/kafka-alias-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module14_migration_kubernetis/service_discovery.md" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-457: Задача - K8s Service Discovery (HTTPX)">
+      <change afterPath="$PROJECT_DIR$/module14_migration_kubernetis/ingress_controller.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,14 +120,6 @@
       <workItem from="1761188764095" duration="8000" />
       <workItem from="1762196499524" duration="140000" />
       <workItem from="1762238007092" duration="10043000" />
-    </task>
-    <task id="LOCAL-00024" summary="TASK-443: Задача -  Фикстуры (@pytest.fixture)">
-      <option name="closed" value="true" />
-      <created>1761395461024</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1761395461024</updated>
     </task>
     <task id="LOCAL-00025" summary="TASK-443: Задача -  Мокинг (pytest-mock) mocked">
       <option name="closed" value="true" />
@@ -514,7 +505,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762346034757</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="TASK-457: Задача - K8s Service Discovery (HTTPX)">
+      <option name="closed" value="true" />
+      <created>1762347194702</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1762347194702</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +531,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-451: Задача - Gateway (Агрегация запросов)" />
     <MESSAGE value="TASK-451: Задача - OpenTelemetry (Концепция)/&#10;Трейсинг (Zipkin)" />
     <MESSAGE value="TASK-451: Задача - Анализ Асинхронного Трейса" />
     <MESSAGE value="TASK-451: Задача - Метрики (Prometheus)" />
@@ -557,7 +555,8 @@
     <MESSAGE value="TASK-457: Задача - Инфраструктуры (Helm)" />
     <MESSAGE value="TASK-457: Задача - K8s ConfigMap (Python)" />
     <MESSAGE value="TASK-457: Задача - Развертывание всех Python-сервисов" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-457: Задача - Развертывание всех Python-сервисов" />
+    <MESSAGE value="TASK-457: Задача - K8s Service Discovery (HTTPX)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-457: Задача - K8s Service Discovery (HTTPX)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$faust_str.coverage" NAME="faust_str Coverage Results" MODIFIED="1761737310328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/kafka_conf" />
