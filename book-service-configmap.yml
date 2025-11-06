@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: book-service-config
+data:
+  DATABASE_URL: postgresql+asyncpg://user:pass@my-postgresql:5432/bookdb
+  REDIS_URL: redis://my-redis-master:6379
+  KAFKA_BOOTSTRAP_SERVERS: my-kafka-cluster-kafka-bootstrap:9092
+  ZIPKIN_URL: http://zipkin:9411

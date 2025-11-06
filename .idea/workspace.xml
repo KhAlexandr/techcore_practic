@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-455: Задача - ConfigMap (Конфигурация FastAPI)">
-      <change afterPath="$PROJECT_DIR$/fastapi-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fastapi-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redis-deployment.yaml" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-457: Задача - Health Checks (liveness/readiness)">
+      <change afterPath="$PROJECT_DIR$/module14_migration_kubernetis/deployment_celery.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,44 +51,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python tests.Python tests in gil_esse.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_app.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.analytics_worker.executor&quot;: &quot;Run&quot;,
-    &quot;Python.author_aiohttp.executor&quot;: &quot;Run&quot;,
-    &quot;Python.author_service.executor&quot;: &quot;Run&quot;,
-    &quot;Python.book.executor&quot;: &quot;Run&quot;,
-    &quot;Python.calc.executor&quot;: &quot;Run&quot;,
-    &quot;Python.conftest.executor&quot;: &quot;Run&quot;,
-    &quot;Python.decorators.executor&quot;: &quot;Run&quot;,
-    &quot;Python.exeption.executor&quot;: &quot;Run&quot;,
-    &quot;Python.faust_str.executor&quot;: &quot;Run&quot;,
-    &quot;Python.find_error.executor&quot;: &quot;Run&quot;,
-    &quot;Python.functions.executor&quot;: &quot;Run&quot;,
-    &quot;Python.gil_esse.executor&quot;: &quot;Run&quot;,
-    &quot;Python.json_file.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.multiprocessin_pool.executor&quot;: &quot;Run&quot;,
-    &quot;Python.multiprocessing_process.executor&quot;: &quot;Run&quot;,
-    &quot;Python.multiprocessing_queue.executor&quot;: &quot;Run&quot;,
-    &quot;Python.requests_file.executor&quot;: &quot;Run&quot;,
-    &quot;Python.students.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/TASK-455&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests in gil_esse.py.executor": "Run",
+    "Python tests.Python tests in test_app.py.executor": "Run",
+    "Python.analytics_worker.executor": "Run",
+    "Python.author_aiohttp.executor": "Run",
+    "Python.author_service.executor": "Run",
+    "Python.book.executor": "Run",
+    "Python.calc.executor": "Run",
+    "Python.conftest.executor": "Run",
+    "Python.decorators.executor": "Run",
+    "Python.exeption.executor": "Run",
+    "Python.faust_str.executor": "Run",
+    "Python.find_error.executor": "Run",
+    "Python.functions.executor": "Run",
+    "Python.gil_esse.executor": "Run",
+    "Python.json_file.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.multiprocessin_pool.executor": "Run",
+    "Python.multiprocessing_process.executor": "Run",
+    "Python.multiprocessing_queue.executor": "Run",
+    "Python.requests_file.executor": "Run",
+    "Python.students.executor": "Run",
+    "Python.test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feature/TASK-457",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app" />
@@ -122,78 +120,6 @@
       <workItem from="1761188764095" duration="8000" />
       <workItem from="1762196499524" duration="140000" />
       <workItem from="1762238007092" duration="10043000" />
-    </task>
-    <task id="LOCAL-00020" summary="TASK-433: Задача - Концепция: GIL (Global Interpreter Lock)">
-      <option name="closed" value="true" />
-      <created>1761190777912</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1761190777912</updated>
-    </task>
-    <task id="LOCAL-00021" summary="TASK-433: Задача - multiprocessing.Process">
-      <option name="closed" value="true" />
-      <created>1761191167557</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1761191167557</updated>
-    </task>
-    <task id="LOCAL-00022" summary="TASK-433: Задача - multiprocessing.Pool">
-      <option name="closed" value="true" />
-      <created>1761191749451</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1761191749451</updated>
-    </task>
-    <task id="LOCAL-00023" summary="TASK-443: Задача -  pytest (Основы)">
-      <option name="closed" value="true" />
-      <created>1761393712099</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1761393712099</updated>
-    </task>
-    <task id="LOCAL-00024" summary="TASK-443: Задача -  Фикстуры (@pytest.fixture)">
-      <option name="closed" value="true" />
-      <created>1761395461024</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1761395461024</updated>
-    </task>
-    <task id="LOCAL-00025" summary="TASK-443: Задача -  Мокинг (pytest-mock) mocked">
-      <option name="closed" value="true" />
-      <created>1761396868046</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1761396868046</updated>
-    </task>
-    <task id="LOCAL-00026" summary="TASK-443: Задача -  FastAPI TestClient (Интеграция)">
-      <option name="closed" value="true" />
-      <created>1761398805332</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1761398805332</updated>
-    </task>
-    <task id="LOCAL-00027" summary="TASK-443: Задача -  Переопределение DI (Depends) в тестах">
-      <option name="closed" value="true" />
-      <created>1761400338690</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1761400338690</updated>
-    </task>
-    <task id="LOCAL-00028" summary="TASK-443: Задача -  Тестирование 422 (Валидация Pydantic)">
-      <option name="closed" value="true" />
-      <created>1761400852773</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1761400852773</updated>
     </task>
     <task id="LOCAL-00029" summary="TASK-443: Задача -  pytest-asyncio/httpx (Тестирование async API)">
       <option name="closed" value="true" />
@@ -515,7 +441,79 @@
       <option name="project" value="LOCAL" />
       <updated>1762245139461</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="TASK-457: Задача - Helm (Менеджер пакетов)">
+      <option name="closed" value="true" />
+      <created>1762332898561</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1762332898561</updated>
+    </task>
+    <task id="LOCAL-00070" summary="TASK-457: Задача - Инфраструктуры (Helm)">
+      <option name="closed" value="true" />
+      <created>1762334393672</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1762334393672</updated>
+    </task>
+    <task id="LOCAL-00071" summary="TASK-457: Задача - K8s ConfigMap (Python)">
+      <option name="closed" value="true" />
+      <created>1762342440976</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1762342440976</updated>
+    </task>
+    <task id="LOCAL-00072" summary="TASK-457: Задача - Развертывание всех Python-сервисов">
+      <option name="closed" value="true" />
+      <created>1762346034757</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1762346034757</updated>
+    </task>
+    <task id="LOCAL-00073" summary="TASK-457: Задача - K8s Service Discovery (HTTPX)">
+      <option name="closed" value="true" />
+      <created>1762347194702</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1762347194702</updated>
+    </task>
+    <task id="LOCAL-00074" summary="TASK-457: Задача - Установка Ingress Controller">
+      <option name="closed" value="true" />
+      <created>1762347607172</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1762347607172</updated>
+    </task>
+    <task id="LOCAL-00075" summary="TASK-457: Задача - Ingress Rule">
+      <option name="closed" value="true" />
+      <created>1762347768310</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1762347768310</updated>
+    </task>
+    <task id="LOCAL-00076" summary="TASK-457: Задача - Тестирование Ingress (DNS)">
+      <option name="closed" value="true" />
+      <created>1762348459303</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1762348459303</updated>
+    </task>
+    <task id="LOCAL-00077" summary="TASK-457: Задача - Health Checks (liveness/readiness)">
+      <option name="closed" value="true" />
+      <created>1762359532657</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1762359532657</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,15 +531,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-451: Задача - Финальный docker-compose.ym/Dockerfile для Python/FastAPI/" />
-    <MESSAGE value="TASK-451: Задача - Финальный docker-compose.ym/Dockerfile для Python/FastAPI/Добавление сервисов в docker-compose" />
-    <MESSAGE value="TASK-451: Задача - Gateway (Маршрутизация)/  Gateway (Service Discovery)" />
-    <MESSAGE value="TASK-451: Задача - Gateway (Аутентификация)/ Gateway (Авторизация)" />
-    <MESSAGE value="TASK-451: Задача - Gateway (Агрегация запросов)" />
-    <MESSAGE value="TASK-451: Задача - OpenTelemetry (Концепция)/&#10;Трейсинг (Zipkin)" />
-    <MESSAGE value="TASK-451: Задача - Анализ Асинхронного Трейса" />
-    <MESSAGE value="TASK-451: Задача - Метрики (Prometheus)" />
-    <MESSAGE value="TASK-451: Задача - Prometheus &amp; Grafana (docker-compose)" />
     <MESSAGE value="TASK-451: Задача - Дашборд в Grafana" />
     <MESSAGE value="TASK-451: Задача - Кастомные Метрики (Otel)" />
     <MESSAGE value="TASK-451: Задача - Логи (Structlog + Loki)" />
@@ -558,7 +547,16 @@
     <MESSAGE value="TASK-455: Задача - Service (Postgres)" />
     <MESSAGE value="TASK-455: Задача - Сборка Python/FastAPI образа для Minikube" />
     <MESSAGE value="TASK-455: Задача - ConfigMap (Конфигурация FastAPI)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-455: Задача - ConfigMap (Конфигурация FastAPI)" />
+    <MESSAGE value="TASK-457: Задача - Helm (Менеджер пакетов)" />
+    <MESSAGE value="TASK-457: Задача - Инфраструктуры (Helm)" />
+    <MESSAGE value="TASK-457: Задача - K8s ConfigMap (Python)" />
+    <MESSAGE value="TASK-457: Задача - Развертывание всех Python-сервисов" />
+    <MESSAGE value="TASK-457: Задача - K8s Service Discovery (HTTPX)" />
+    <MESSAGE value="TASK-457: Задача - Установка Ingress Controller" />
+    <MESSAGE value="TASK-457: Задача - Ingress Rule" />
+    <MESSAGE value="TASK-457: Задача - Тестирование Ingress (DNS)" />
+    <MESSAGE value="TASK-457: Задача - Health Checks (liveness/readiness)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-457: Задача - Health Checks (liveness/readiness)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$faust_str.coverage" NAME="faust_str Coverage Results" MODIFIED="1761737310328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/kafka_conf" />

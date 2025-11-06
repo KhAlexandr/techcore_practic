@@ -33,6 +33,11 @@ async def metrics_endpoint():
     return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
 
+@app.get("/healthz")
+async def health_check():
+    return {"status": "healthy"}
+
+
 @app.get("/getaway/api/books/{book_id}")
 async def get_book(book_id: int, user: dict = Depends(verify_user)):
     async with httpx.AsyncClient() as client:
