@@ -4,6 +4,7 @@ import asyncio
 
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
+from opentelemetry import trace
 
 from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
 
@@ -26,6 +27,8 @@ FastAPIInstrumentor.instrument_app(app)
 HTTPXClientInstrumentor().instrument()
 
 logger.info("service_started", service_name="gateway")
+
+tracer = trace.get_tracer(__name__)
 
 
 @app.get("/metrics")
