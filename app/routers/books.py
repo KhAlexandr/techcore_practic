@@ -144,7 +144,8 @@ async def create_book(
     log.info("book_created", book_id=new_book.id, title=new_book.title)
     book_counter.add(1, {"operation": "create", "author_id": str(book.author_id)})
     book_counter.add(1, {"operation": "create", "author_id": str(book.author_id)})
-    await producer.send_and_wait(
+    prod = await producer()
+    await prod.send_and_wait(
         topic="book_views",
         key=str(new_book.id).encode("utf-8"),
         value=f"Создана новая книга с названием {new_book.title}".encode("utf-8"),
@@ -166,7 +167,8 @@ async def get_book(
     book = await book_repo.get_by_id(book_id, session=session)
     if book is None:
         raise HTTPException(status_code=404, detail="Book not found")
-    await producer.send_and_wait(
+    prod = await producer()
+    await prod.send_and_wait(
         topic="book_views",
         key=str(book_id).encode("utf-8"),
         value=f"Книга {book['title']} была просмотрена.".encode("utf-8"),

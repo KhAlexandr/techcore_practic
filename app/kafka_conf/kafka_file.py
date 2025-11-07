@@ -1,3 +1,6 @@
 from aiokafka import AIOKafkaProducer
 
-producer = AIOKafkaProducer(bootstrap_servers="kafka:9092")
+
+async def producer():
+    return AIOKafkaProducer(bootstrap_servers="kafka:9092")
+
