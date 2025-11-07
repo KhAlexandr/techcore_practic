@@ -3,27 +3,26 @@ name: CD - Deploy to Kubernetes
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set K8s Context
-        uses: azure/setup-kubectl@v3
-        with:
-          version: 'latest'
 
-      - name: Configure K8s Context
-        run: |
-          echo "${{ secrets.KUBE_CONFIG }}" > kubeconfig.yaml
-          export KUBECONFIG=kubeconfig.yaml
-          kubectl get nodes
+    - name: Create Kind Cluster
+      uses: helm/kind-action@v1.8.0
 
-      - name: Deploy to Kubernetes
-        run: |
-          export KUBECONFIG=kubeconfig.yaml
-          kubectl apply -f ./k8s/
+    - name: Set K8s Context
+      uses: azure/setup-kubectl@v3
+      with:
+        version: 'latest'
+
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f ./k8s/

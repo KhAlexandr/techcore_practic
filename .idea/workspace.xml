@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-459: Задача - GitHub Actions (Deploy)">
-      <change afterPath="$PROJECT_DIR$/bookservice-ingress.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bookservice-v2-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bookservice-v2-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canary-ingress.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +80,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#15 on feature/TASK-459",
+    "git-widget-placeholder": "fix/TASK-459-GitHub-Actions-(Deploy)",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
