@@ -3,8 +3,6 @@ name: CD - Deploy to Kubernetes
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
   deploy:
@@ -14,19 +12,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-
-    - name: Create Kind Cluster
-      uses: helm/kind-action@v1.8.0
-
     - name: Set K8s Context
-      uses: azure/setup-kubectl@v3
+      uses: azure/k8s-set-context@v1
       with:
-        version: 'latest'
-
-    - name: Apply Kubernetes manifests
-      run: |
-          kubectl apply -f deployment.yaml
-          kubectl apply -f fastapi-service.yaml
+        kubeconfig: ${{ secrets.KUBE_CONFIG }}
 
     - name: Deploy to Kubernetes
       run: |
