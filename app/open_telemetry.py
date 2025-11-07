@@ -1,4 +1,5 @@
 import os
+import sys
 
 from dotenv import load_dotenv
 
@@ -7,7 +8,7 @@ from opentelemetry.exporter.prometheus import PrometheusMetricReader
 from opentelemetry.sdk.metrics import MeterProvider
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.exporter.zipkin.json import ZipkinExporter
+from opentelemetry.exporter.jaeger.thrift import JaegerExporter
 from opentelemetry.sdk.resources import Resource
 
 
@@ -15,17 +16,20 @@ load_dotenv()
 
 
 def setup_tracing(service_name: str):
+    if "pytest" in sys.modules:
+        return
     resource = Resource.create({"service.name": service_name})
 
     tracer_provider = TracerProvider(resource=resource)
 
     trace.set_tracer_provider(tracer_provider)
 
-    zipkin_exporter = ZipkinExporter(
-        endpoint=os.getenv("ZIPKIN_ENDPOINT", "http://localhost:9411/api/v2/spans"),
+    jaeger_exporter = JaegerExporter(
+        agent_host_name="jaeger-agent.monitoring.svc.cluster.local",
+        agent_port=6831,
     )
 
-    span_processor = BatchSpanProcessor(zipkin_exporter)
+    span_processor = BatchSpanProcessor(jaeger_exporter)
 
     tracer_provider.add_span_processor(span_processor)
 

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookservice-v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookservice
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: bookservice
+        version: v2
+    spec:
+      containers:
+      - name: bookservice
+        image: my-app:v2  # или другой образ для v2
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: book-service-config
+        - secretRef:
+            name: postgres-secret
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 180
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 120
+          periodSeconds: 5

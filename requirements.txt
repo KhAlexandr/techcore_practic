@@ -64,8 +64,8 @@ opentelemetry-exporter-otlp
 opentelemetry-exporter-otlp-proto-common
 opentelemetry-exporter-otlp-proto-grpc
 opentelemetry-exporter-otlp-proto-http
-opentelemetry-exporter-zipkin
-opentelemetry-exporter-zipkin-json
+opentelemetry-exporter-jaeger-thrift
+opentelemetry-exporter-prometheus
 opentelemetry-exporter-zipkin-proto-http
 opentelemetry-instrumentation
 opentelemetry-instrumentation-aiokafka
@@ -133,3 +133,4 @@ wrapt==1.17.3
 yarl==1.22.0
 zipp==3.23.0
 structlog
+deprecated

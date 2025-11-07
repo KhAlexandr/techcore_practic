@@ -28,9 +28,10 @@ background_service = books.BackgroundService()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     asyncio.create_task(background_service.cache_listener())
-    await producer.start()
+    prod = await producer()
+    await prod.start()
     yield
-    await producer.stop()
+    await prod.stop()
 
 
 app = FastAPI(lifespan=lifespan)
