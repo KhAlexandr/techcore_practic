@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-459: Задача - fix/Push в Registry">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-459: Задача - GitHub Actions (Deploy)">
+      <change afterPath="$PROJECT_DIR$/bookservice-ingress.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bookservice-v2-deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bookservice-v2-service.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canary-ingress.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,15 +124,7 @@
       <workItem from="1761188764095" duration="8000" />
       <workItem from="1762196499524" duration="140000" />
       <workItem from="1762238007092" duration="10043000" />
-      <workItem from="1762516729096" duration="790000" />
-    </task>
-    <task id="LOCAL-00040" summary="TASK-449: Задача - Message Bus (RabbitMQ) vs. Event Stream (Kafka)">
-      <option name="closed" value="true" />
-      <created>1761722718687</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1761722718687</updated>
+      <workItem from="1762516729096" duration="2762000" />
     </task>
     <task id="LOCAL-00041" summary="TASK-449: Задача - Kafka Producer (confluent-kafka)">
       <option name="closed" value="true" />
@@ -516,7 +510,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762506462038</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="TASK-459: Задача - GitHub Actions (Deploy)">
+      <option name="closed" value="true" />
+      <created>1762517542922</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1762517542922</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -534,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-455: Задача - PersistentVolumeClaim (PVC) для Postgres" />
     <MESSAGE value="TASK-455: Задача - Secret (Пароли)" />
     <MESSAGE value="TASK-455: Задача - Service (Postgres)" />
     <MESSAGE value="TASK-455: Задача - Сборка Python/FastAPI образа для Minikube" />
@@ -559,7 +560,8 @@
     <MESSAGE value="TASK-459: fix/test_e2e_real_db_async" />
     <MESSAGE value="TASK-459: Задача - Push в Registry" />
     <MESSAGE value="TASK-459: Задача - fix/Push в Registry" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-459: Задача - fix/Push в Registry" />
+    <MESSAGE value="TASK-459: Задача - GitHub Actions (Deploy)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-459: Задача - GitHub Actions (Deploy)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$faust_str.coverage" NAME="faust_str Coverage Results" MODIFIED="1761737310328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/kafka_conf" />
