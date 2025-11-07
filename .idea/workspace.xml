@@ -123,14 +123,6 @@
       <workItem from="1762238007092" duration="10043000" />
       <workItem from="1762516729096" duration="2762000" />
     </task>
-    <task id="LOCAL-00043" summary="TASK-449: Задача - Kafka Consumer">
-      <option name="closed" value="true" />
-      <created>1761725092636</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1761725092636</updated>
-    </task>
     <task id="LOCAL-00044" summary="TASK-449: Задача - Цикл потребления (Consumer Loop)">
       <option name="closed" value="true" />
       <created>1761726130512</created>
@@ -515,7 +507,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762520676126</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="TASK-459: fix - GitHub Actions (Deploy)">
+      <option name="closed" value="true" />
+      <created>1762520801617</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1762520801617</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

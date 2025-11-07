@@ -23,6 +23,11 @@ jobs:
       with:
         version: 'latest'
 
+    - name: Apply Kubernetes manifests
+      run: |
+          kubectl apply -f deployment.yaml
+          kubectl apply -f fastapi-service.yaml
+
     - name: Deploy to Kubernetes
       run: |
         kubectl rollout restart deployment/fastapi-book-service
