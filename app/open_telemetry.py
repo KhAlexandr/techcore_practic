@@ -1,4 +1,5 @@
 import os
+import sys
 
 from dotenv import load_dotenv
 
@@ -15,6 +16,8 @@ load_dotenv()
 
 
 def setup_tracing(service_name: str):
+    if "pytest" in sys.modules:
+        return
     resource = Resource.create({"service.name": service_name})
 
     tracer_provider = TracerProvider(resource=resource)

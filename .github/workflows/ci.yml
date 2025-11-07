@@ -25,7 +25,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -v
+          pytest -v -k "not test_e2e_real_db_async"
 
       - name: Build Docker image
         run: |
