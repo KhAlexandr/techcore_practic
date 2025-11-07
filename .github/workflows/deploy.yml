@@ -25,4 +25,4 @@ jobs:
 
     - name: Deploy to Kubernetes
       run: |
-        kubectl rollout restart deployment/bookservice
+        kubectl rollout restart deployment/fastapi-book-service
