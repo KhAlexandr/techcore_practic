@@ -3,8 +3,6 @@ name: CD - Deploy to Kubernetes
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
   deploy:
@@ -14,11 +12,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Create Kind cluster
+      uses: helm/kind-action@v1.8.0
+
     - name: Set K8s Context
-      uses: azure/k8s-set-context@v1
-      with:
-        kubeconfig: ${{ secrets.KUBE_CONFIG }}
+      uses: azure/setup-kubectl@v3
+
+    - name: Build and load Docker image
+      run: |
+        docker build -t fastapi-book-service:k8s .
+        kind load docker-image fastapi-book-service:k8s
 
     - name: Deploy to Kubernetes
       run: |
-        kubectl rollout restart deployment/fastapi-book-service
+        kubectl apply -f ./k8s/
