@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-459: Задача - GitHub Actions (Deploy)">
-      <change afterPath="$PROJECT_DIR$/bookservice-ingress.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bookservice-v2-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bookservice-v2-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/canary-ingress.yaml" afterDir="false" />
+    <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-459: fix - GitHub Actions (Deploy)">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-service-configmap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/book-service-configmap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastapi-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/fastapi-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastapi-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/fastapi-service.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +83,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#15 on feature/TASK-459",
+    "git-widget-placeholder": "fix/TASK-459-GitHub-Actions-(Deploy)",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -125,54 +125,6 @@
       <workItem from="1762196499524" duration="140000" />
       <workItem from="1762238007092" duration="10043000" />
       <workItem from="1762516729096" duration="2762000" />
-    </task>
-    <task id="LOCAL-00041" summary="TASK-449: Задача - Kafka Producer (confluent-kafka)">
-      <option name="closed" value="true" />
-      <created>1761723187192</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1761723187192</updated>
-    </task>
-    <task id="LOCAL-00042" summary="TASK-449: Задача - Отправка события (Async)">
-      <option name="closed" value="true" />
-      <created>1761724898987</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1761724898987</updated>
-    </task>
-    <task id="LOCAL-00043" summary="TASK-449: Задача - Kafka Consumer">
-      <option name="closed" value="true" />
-      <created>1761725092636</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1761725092636</updated>
-    </task>
-    <task id="LOCAL-00044" summary="TASK-449: Задача - Цикл потребления (Consumer Loop)">
-      <option name="closed" value="true" />
-      <created>1761726130512</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1761726130512</updated>
-    </task>
-    <task id="LOCAL-00045" summary="TASK-449: Задача - Consumer Groups (Многопоточность)">
-      <option name="closed" value="true" />
-      <created>1761732586074</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1761732586074</updated>
-    </task>
-    <task id="LOCAL-00046" summary="TASK-449: Задача - enable.auto.commit=False (Ручное подтверждение)">
-      <option name="closed" value="true" />
-      <created>1761732803999</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1761732803999</updated>
     </task>
     <task id="LOCAL-00047" summary="TASK-449: Задача - aiokafka (Альтернативный Async-клиент)">
       <option name="closed" value="true" />
@@ -518,7 +470,55 @@
       <option name="project" value="LOCAL" />
       <updated>1762517542922</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="TASK-459: fix - GitHub Actions (Deploy)">
+      <option name="closed" value="true" />
+      <created>1762520467939</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1762520467939</updated>
+    </task>
+    <task id="LOCAL-00091" summary="TASK-459: fix - GitHub Actions (Deploy)">
+      <option name="closed" value="true" />
+      <created>1762520676126</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1762520676126</updated>
+    </task>
+    <task id="LOCAL-00092" summary="TASK-459: fix - GitHub Actions (Deploy)">
+      <option name="closed" value="true" />
+      <created>1762520801617</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1762520801617</updated>
+    </task>
+    <task id="LOCAL-00093" summary="TASK-459: fix - GitHub Actions (Deploy)">
+      <option name="closed" value="true" />
+      <created>1762521588392</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1762521588392</updated>
+    </task>
+    <task id="LOCAL-00094" summary="TASK-459: fix - GitHub Actions (Deploy)">
+      <option name="closed" value="true" />
+      <created>1762521721649</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1762521721649</updated>
+    </task>
+    <task id="LOCAL-00095" summary="TASK-459: fix - GitHub Actions (Deploy)">
+      <option name="closed" value="true" />
+      <created>1762521810564</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1762521810564</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="TASK-455: Задача - Secret (Пароли)" />
     <MESSAGE value="TASK-455: Задача - Service (Postgres)" />
     <MESSAGE value="TASK-455: Задача - Сборка Python/FastAPI образа для Minikube" />
     <MESSAGE value="TASK-455: Задача - ConfigMap (Конфигурация FastAPI)" />
@@ -561,7 +560,8 @@
     <MESSAGE value="TASK-459: Задача - Push в Registry" />
     <MESSAGE value="TASK-459: Задача - fix/Push в Registry" />
     <MESSAGE value="TASK-459: Задача - GitHub Actions (Deploy)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TASK-459: Задача - GitHub Actions (Deploy)" />
+    <MESSAGE value="TASK-459: fix - GitHub Actions (Deploy)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TASK-459: fix - GitHub Actions (Deploy)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/techcore_practic$faust_str.coverage" NAME="faust_str Coverage Results" MODIFIED="1761737310328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/kafka_conf" />
