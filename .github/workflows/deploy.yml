@@ -16,6 +16,8 @@ jobs:
 
     - name: Create Kind cluster
       uses: helm/kind-action@v1.8.0
+      with:
+        cluster_name: kind
 
     - name: Set K8s Context
       uses: azure/setup-kubectl@v3
@@ -23,7 +25,7 @@ jobs:
     - name: Build and load Docker image
       run: |
         docker build -t fastapi-book-service:k8s .
-        kind load docker-image fastapi-book-service:k8s
+        kind load docker-image fastapi-book-service:k8s --name kind
 
     - name: Deploy to Kubernetes
       run: |
