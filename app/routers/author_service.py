@@ -28,8 +28,8 @@ class AuthorService:
     @backoff.on_exception(backoff.expo, httpx.RequestError, max_tries=3)
     async def get_author(self, author_id):
         async with semaphore:
-            task1 = asyncio.create_task(self.client.get(f"http/api/author/{author_id}"))
-            task2 = asyncio.create_task(self.client.get("http://review-service/"))
+            task1 = self.client.get(f"http://api/author/{author_id}")
+            task2 = self.client.get("http://review-service/")
             response = await asyncio.gather(task1, task2, return_exceptions=True)
             response_1 = response[0]
             response_1.raise_for_status()

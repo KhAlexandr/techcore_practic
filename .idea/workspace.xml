@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="284beabe-9b37-470d-8ae6-ab3381d41158" name="Changes" comment="TASK-459: fix - GitHub Actions (Deploy)">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-service-configmap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/book-service-configmap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastapi-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/fastapi-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastapi-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/fastapi-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/author_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/author_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +81,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "fix/TASK-459-GitHub-Actions-(Deploy)",
+    "git-widget-placeholder": "fix/TASK-445-asyncio.gather",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -95,11 +93,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/k8s" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/routers" />
       <recent name="$PROJECT_DIR$/module3_async" />
       <recent name="$PROJECT_DIR$/async_python" />
-      <recent name="$PROJECT_DIR$/module2_pythom" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -125,30 +123,7 @@
       <workItem from="1762196499524" duration="140000" />
       <workItem from="1762238007092" duration="10043000" />
       <workItem from="1762516729096" duration="2762000" />
-    </task>
-    <task id="LOCAL-00047" summary="TASK-449: Задача - aiokafka (Альтернативный Async-клиент)">
-      <option name="closed" value="true" />
-      <created>1761735170185</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1761735170185</updated>
-    </task>
-    <task id="LOCAL-00048" summary="TASK-449: Задача - Faust-Streaming (Python Kafka Streams)">
-      <option name="closed" value="true" />
-      <created>1761738292800</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1761738292800</updated>
-    </task>
-    <task id="LOCAL-00049" summary="TASK-451: Задача - Финальный docker-compose.ym/Dockerfile для Python/FastAPI">
-      <option name="closed" value="true" />
-      <created>1761816274860</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1761816274860</updated>
+      <workItem from="1762783540967" duration="1410000" />
     </task>
     <task id="LOCAL-00050" summary="TASK-451: Задача - Gateway (Маршрутизация)/  Gateway (Service Discovery)">
       <option name="closed" value="true" />
@@ -518,7 +493,31 @@
       <option name="project" value="LOCAL" />
       <updated>1762521810564</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="TASK-459: fix - GitHub Actions (Deploy)">
+      <option name="closed" value="true" />
+      <created>1762588912053</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1762588912053</updated>
+    </task>
+    <task id="LOCAL-00097" summary="TASK-459: fix - GitHub Actions (Deploy)">
+      <option name="closed" value="true" />
+      <created>1762588957235</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1762588957235</updated>
+    </task>
+    <task id="LOCAL-00098" summary="TASK-459: fix - GitHub Actions (Deploy)">
+      <option name="closed" value="true" />
+      <created>1762589197474</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1762589197474</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
