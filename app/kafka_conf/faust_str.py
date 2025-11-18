@@ -1,17 +1,19 @@
 import faust
 
 
-app = faust.App("stream_apps", broker="kafka://kafka:9092")
+app = faust.App(
+    "my-streaming-up",
+    broker="kafka://kafka:9092",
+    opic_allow_declare=True,
+)
 
 
-topic = app.topic("book_views", value_serializer="raw")
+input_topic = app.topic("book_views", value_serializer="json")
+
+output_topic = app.topic("book_views_stream", value_serializer="json")
 
 
-@app.agent(topic)
-async def process_message(messages):
+@app.agent(input_topic)
+async def process(messages):
     async for message in messages:
-        print(f"Получено сообщение: {message.decode('utf-8')}")
-
-
-if __name__ == "__main__":
-    app.main()
+        await output_topic.send(value=message)

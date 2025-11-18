@@ -1,3 +1,4 @@
+import asyncio
 from typing import AsyncGenerator
 
 import json
@@ -11,13 +12,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from opentelemetry import metrics
 
 from app.authors.models import Author
-from app.books.schemas import BasBookScheme, BookScheme
+from app.books.schemas import BookScheme
 from app.books.models import Book
-from app.database import session_maker
+from app.database import get_db_session
 from app.authors.schemas import AuthorScheme
 from app.redis_database import redis_client
-from app.routers.author_service import AuthorService
-from app.kafka_conf.kafka_file import producer
+from app.kafka_conf.producer import view_book
 from app.open_telemetry import setup_metrics
 from app.logging import logger
 
@@ -30,17 +30,12 @@ book_counter = meter.create_counter(
     name="books_created_total", description="Количество созданых книг", unit="1"
 )
 
-
-async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
-    async with session_maker() as session:
-        yield session
-
-
 router = APIRouter(prefix="/api/books", tags=["Управление книгами"])
 
 
 class BackgroundService:
-    async def cache_listener(self):
+    @staticmethod
+    async def cache_listener():
         pubsub = redis_client.pubsub()
         await pubsub.subscribe("cache:invalidate")
 
@@ -51,10 +46,11 @@ class BackgroundService:
 
 
 class BookRepository:
-    async def get_by_id(self, book_id: int, session: AsyncSession):
+
+    @staticmethod
+    async def get_by_id(book_id: int, session: AsyncSession):
         key = f"book:{book_id}"
         cached_book = await redis_client.get(key)
-        print(cached_book)
         if cached_book:
             return json.loads(cached_book)
         result = await session.execute(
@@ -62,20 +58,25 @@ class BookRepository:
         )
         book = result.scalar_one_or_none()
         if book:
-            author_service = AuthorService()
-            author_name = await author_service.get_author_name(book.author_id)
             book_dict = book.to_dict()
-            book_dict["author_name"] = author_name
+            book_dict["author"] = {
+                "id": book.author.id,
+                "first_name": book.author.first_name,
+                "last_name": book.author.last_name,
+                "age": book.author.age,
+            }
             await redis_client.set(key, json.dumps(book_dict))
             return book_dict
         return None
 
-    async def get_all_books(self, session: AsyncSession):
+    @staticmethod
+    async def get_all_books(session: AsyncSession):
         result = await session.scalars(select(Book))
         books = result.all()
         return [book.to_dict() for book in books]
 
-    async def update_book(self, book_id: int, session: AsyncSession, **kwargs):
+    @staticmethod
+    async def update_book(book_id: int, updated_book: BookScheme, session: AsyncSession,):
         async with redis_client.lock(f"inventory_lock:{book_id}", timeout=10):
             result = await session.execute(
                 select(Book)
@@ -84,72 +85,63 @@ class BookRepository:
             )
             book = result.scalar_one_or_none()
             if book:
-                for key, value in kwargs.items():
+                for key, value in updated_book.model_dump().items():
                     setattr(book, key, value)
                 await session.commit()
-                await redis_client.delete(f"book:{book_id}")
                 await redis_client.publish("cache:invalidate", str(book_id))
             return book
 
+    @staticmethod
     async def create(
-        self,
-        title: str,
-        author_id: int,
+        book: BookScheme,
         session: AsyncSession,
-        year: int | None = None,
     ) -> Book:
-        book = Book(title=title, year=year, author_id=author_id)
+        book = Book(**book.model_dump())
         session.add(book)
         await session.commit()
         await session.refresh(book)
         return book
 
+    @staticmethod
     async def create_author_and_book(
-        self,
-        first_name: str,
-        last_name: str,
-        title: str,
+        book: BookScheme,
+        author: AuthorScheme,
         session: AsyncSession,
-        age: int | None = None,
-        year: int | None = None,
     ):
         async with session.begin():
-            author = Author(first_name=first_name, last_name=last_name, age=age)
+            author = Author(**author.model_dump())
             session.add(author)
             await session.flush()
 
-            book = Book(title=title, year=year, author_id=author.id)
+            book = Book(**book.model_dump())
             session.add(book)
             return author
 
 
-book_repo = BookRepository()
-
-
 @router.get("/")
-async def get_all_books(session: AsyncSession = Depends(get_db_session)):
+async def get_all_books(
+        session: AsyncSession = Depends(get_db_session),
+        book_repo: BookRepository = Depends(BookRepository)
+):
     books = await book_repo.get_all_books(session=session)
     return {"books": books}
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
 async def create_book(
-    book: BookScheme, session: AsyncSession = Depends(get_db_session)
+    book: BookScheme,
+    session: AsyncSession = Depends(get_db_session),
+    book_repo: BookRepository = Depends(BookRepository)
 ):
     log = logger.bind(operation="create_book", author_id=book.author_id)
     log.info("book_creation_started", title=book.title)
     new_book = await book_repo.create(
-        title=book.title, year=book.year, author_id=book.author_id, session=session
+        book=book, session=session
     )
     log.info("book_created", book_id=new_book.id, title=new_book.title)
     book_counter.add(1, {"operation": "create", "author_id": str(book.author_id)})
     book_counter.add(1, {"operation": "create", "author_id": str(book.author_id)})
-    prod = await producer()
-    await prod.send_and_wait(
-        topic="book_views",
-        key=str(new_book.id).encode("utf-8"),
-        value=f"Создана новая книга с названием {new_book.title}".encode("utf-8"),
-    )
+    asyncio.create_task(view_book(book_id=new_book.id))
     return {
         "id": new_book.id,
         "title": new_book.title,
@@ -161,31 +153,27 @@ async def create_book(
 @router.get("/{book_id}")
 async def get_book(
     book_id: int,
-    background_task: BackgroundTasks,
     session: AsyncSession = Depends(get_db_session),
+    book_repo: BookRepository = Depends(BookRepository)
 ):
     book = await book_repo.get_by_id(book_id, session=session)
     if book is None:
         raise HTTPException(status_code=404, detail="Book not found")
-    prod = await producer()
-    await prod.send_and_wait(
-        topic="book_views",
-        key=str(book_id).encode("utf-8"),
-        value=f"Книга {book['title']} была просмотрена.".encode("utf-8"),
-    )
+    asyncio.create_task(view_book(book_id=book_id))
     return {**book}
 
 
 @router.patch("/{book_id}")
 async def update_book(
-    book_id: int, book: BookScheme, session: AsyncSession = Depends(get_db_session)
+    book_id: int,
+    book: BookScheme,
+    session: AsyncSession = Depends(get_db_session),
+    book_repo: BookRepository = Depends(BookRepository)
 ):
     new_book = await book_repo.update_book(
         book_id=book_id,
-        session=session,
-        title=book.title,
-        year=book.year,
-        author_id=book.author_id,
+        updated_book=book,
+        session=session
     )
     if not new_book:
         raise HTTPException(status_code=404, detail="Book not found")
@@ -195,15 +183,13 @@ async def update_book(
 @router.post("/create-author-and-book")
 async def create_author_and_book(
     autor: AuthorScheme,
-    book: BasBookScheme,
+    book: BookScheme,
     session: AsyncSession = Depends(get_db_session),
+    book_repo: BookRepository = Depends(BookRepository)
 ):
     new_author_and_book = await book_repo.create_author_and_book(
-        first_name=autor.first_name,
-        last_name=autor.last_name,
-        age=autor.age,
-        title=book.title,
-        year=book.year,
+        book=book,
+        author=autor,
         session=session,
     )
     return {

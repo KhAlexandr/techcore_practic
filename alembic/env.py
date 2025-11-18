@@ -24,10 +24,10 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
+config.set_main_option(
+    "sqlalchemy.url",
+    "postgresql+asyncpg://fastapi_user:mysecretpassword@postgres_container:5432/fastapi2?async_fallback=True"
+)
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,

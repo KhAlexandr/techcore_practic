@@ -1,16 +1,10 @@
 from celery import Celery
 
-from dotenv import load_dotenv
-
-import os
-
-load_dotenv()
-
 
 celery_app = Celery(
-    "celery_tasks",
-    broker=f'pyamqp://{os.getenv("RABBITMQ_DEFAULT_USER")}:{os.getenv("RABBITMQ_DEFAULT_PASS")}@rabbitmq:5672//',
-    backend="redis://redis:6379/0",
+    'tasks',
+    broker='pyamqp://guest:guest@rabbitmq:5672//',
+    backend="redis://redis:6379/0"
 )
 
 

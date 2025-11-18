@@ -1,69 +1,66 @@
 volumes:
-  fp_data:
-  redis_data:
-  mongo_data:
-  rabbitmq_data:
+  pg_data:
   zipkin_data:
   grafana_data:
   prometheus_data:
 
 services:
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: rabbitmq-container
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
   db:
-    image: postgres:16.0
-    env_file: .env
-    volumes:
-      - fp_data:/var/lib/postgresql/data
+    image: postgres:16
+    container_name: postgres_container
     ports:
       - "5432:5432"
+    environment:
+      POSTGRES_DB: fastapi2
+      POSTGRES_USER: fastapi_user
+      POSTGRES_PASSWORD: mysecretpassword
 
   redis:
     image: redis:latest
     container_name: redis-container
     ports:
       - "6379:6379"
-    volumes:
-      - redis_data:/var/lib/redis/data
 
   mongo:
-    image: mongo
+    image: mongo:latest
     container_name: mongo-container
-    env_file:
-      - .env
     ports:
       - "27017:27017"
-    volumes:
-      - mongo_data:/var/lib/mongo/data
-
-  rabbitmq:
-    image: rabbitmq:4-management
-    container_name: rabbitmq-container
-    ports:
-      - "5672:5672"
-      - "15672:1572"
-    env_file:
-      - .env
-    volumes:
-      - rabbitmq_data:/var/lib/rabbitmq/data
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
 
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.5.0
-    hostname: zookeeper
-    container_name: zookeeper-container
-    ports:
-      - "2181:2181"
-    env_file:
-      - .env
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    healthcheck:
+      test: echo stat | nc localhost 2181 || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   kafka:
-    image: confluentinc/cp-kafka:7.5.0
-    depends_on:
-      - zookeeper
-    hostname: kafka
-    container_name: kafka-container
-    env_file:
-      - .env
+    image: confluentinc/cp-kafka:7.4.4
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_DEFAULT_REPLICATION_FACTOR: 1
     ports:
       - "9092:9092"
+    depends_on:
+      zookeeper:
+        condition: service_healthy
     healthcheck:
       test: [ "CMD", "kafka-topics", "--list", "--bootstrap-server", "localhost:9092" ]
       interval: 10s
@@ -82,72 +79,55 @@ services:
 
   celery_worker:
     image: techcore_practic-app:latest
-    container_name: celery_worker-container
-    command: celery -A app.celery_tasks.celery_apps worker --loglevel=info
+    develop:
+      watch:
+        - action: rebuild
+          path: .
+    command: celery -A app.celery_tasks.worker_service worker --loglevel=info
     depends_on:
-      - rabbitmq
       - redis
-    env_file:
-      - .env
+      - rabbitmq
     environment:
-      - PYTHONPATH=/app
-    healthcheck:
-      test: [ "CMD", "celery", "-A", "app.celery_tasks.celery_apps", "inspect", "ping" ]
-      interval: 10s
-      timeout: 5s
-      retries: 10
-      start_period: 30s
+      - CELERY_BROKER_URL=pyamqp://guest:guest@rabbitmq:5672//
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
 
   celery_beat:
     image: techcore_practic-app:latest
-    container_name: celery_beat-container
     command: celery -A app.celery_tasks.celery_apps beat --loglevel=info
     depends_on:
-      - rabbitmq
       - redis
+      - rabbitmq
     environment:
-      - PYTHONPATH=/app
+      - CELERY_BROKER_URL=pyamqp://guest:guest@rabbitmq:5672//
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
 
   flower:
     image: techcore_practic-app:latest
     container_name: flower-container
     command: celery -A app.celery_tasks.celery_apps flower --port=5555
+    depends_on:
+      - celery_worker
     ports:
       - "5555:5555"
-      - "8003:8000"
-    depends_on:
-      rabbitmq:
-        condition: service_started
-      redis:
-        condition: service_started
-      celery_worker:
-        condition: service_healthy
     environment:
-      - PYTHONPATH=/app
-    restart: always
+      - CELERY_BROKER_URL=pyamqp://guest:guest@rabbitmq:5672//
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
 
-  analytics-worker:
+  faust_worker:
     image: techcore_practic-app:latest
-    command: python3 -m app.kafka_conf.analytics_worker
+    container_name: faust-worker
+    command: python3 -m faust -A app.kafka_conf.faust_str worker -l info
     depends_on:
       kafka:
         condition: service_healthy
-      mongo:
-        condition: service_started
-    environment:
-      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-      MONGODB_URL: mongodb://mongo:27017
 
-  faust-worker:
-    image: techcore_practic-app:latest
-    command: python -m app.kafka_conf.faust_str worker
-    depends_on:
-      kafka:
-        condition: service_healthy
-    environment:
-      KAFKA_BROKER_URL: kafka:9092
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "6831:6831/udp"
+      - "16686:16686"
 
-#  traefik:
+  #  traefik:
 #    image: traefik:v2.10
 #    command:
 #      - --api.dashboard=true
@@ -207,8 +187,6 @@ services:
       - celery_worker
       - celery_beat
       - flower
-      - analytics-worker
-      - faust-worker
       - api
       - gateway
 

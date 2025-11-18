@@ -1,3 +1,5 @@
+from unittest.mock import patch, AsyncMock
+
 import pytest
 
 from sqlalchemy import create_engine
@@ -7,6 +9,17 @@ from testcontainers.postgres import PostgresContainer
 
 from app.database import Base
 from app.books.models import Book
+
+
+@pytest.fixture(autouse=True)
+def mock_kafka():
+    with patch('app.kafka_conf.producer.AIOKafkaProducer') as mock_producer:
+        mock_instance = AsyncMock()
+        mock_producer.return_value = mock_instance
+        mock_instance.start = AsyncMock()
+        mock_instance.stop = AsyncMock()
+        mock_instance.send_and_wait = AsyncMock()
+        yield
 
 
 @pytest.fixture

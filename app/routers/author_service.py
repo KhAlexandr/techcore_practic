@@ -4,13 +4,20 @@ import asyncio
 
 import backoff
 
-from pybreaker import CircuitBreaker, CircuitBreakerError
+from fastapi import APIRouter, Depends
 
-from circuitbreaker import circuit
+from aiocircuitbreaker import circuit, CircuitBreakerError
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.authors.models import Author
+from app.authors.schemas import AuthorScheme
+from app.database import get_db_session
+from app.redis_database import redis_client
 
 
-circuit_breaker = CircuitBreaker(fail_max=5, reset_timeout=5)
 semaphore = asyncio.Semaphore(5)
+
+router = APIRouter(prefix="/author", tags=["Управление авторами"])
 
 
 class AuthorService:
@@ -44,17 +51,41 @@ class AuthorService:
         except Exception as e:
             return "Default Author"
 
+    @circuit(failure_threshold=5)
+    @backoff.on_exception(backoff.expo, (httpx.RequestError, asyncio.TimeoutError),
+                          max_tries=3)
+    async def get_wait_for(self):
+        response = await asyncio.wait_for(
+            self.client.get("https://httpbin.org/delay/4"),
+            timeout=1.0
+        )
+        return response.json()
 
-async def main():
-    async with AuthorService() as author_repo:
-        for i in range(6):
-            try:
-                await author_repo.get_author(1)
-            except CircuitBreakerError as e:
-                print(f"Ошибка: {type(e).__name__}")
-            except Exception as e:
-                print(f"Другая ошибка: {type(e).__name__}")
+    @staticmethod
+    async def create_author(author: AuthorScheme, session: AsyncSession):
+        new_author = Author(**author.model_dump())
+        session.add(new_author)
+        await session.commit()
+        return new_author
 
 
-if __name__ == "__main__":
-    asyncio.run(main())
+@router.post("")
+async def create_author(
+        author: AuthorScheme,
+        session: AsyncSession = Depends(get_db_session),
+        author_service: AuthorService = Depends(AuthorService)
+):
+    new_autor = await author_service.create_author(author, session)
+    return new_autor
+
+
+@router.get("/wait_for")
+async def get_timeout():
+    async with AuthorService() as repo:
+        try:
+            await repo.get_wait_for()
+        except CircuitBreakerError:
+            author = await redis_client.get("author_id")
+            if author is None:
+                return "Default author"
+            return author

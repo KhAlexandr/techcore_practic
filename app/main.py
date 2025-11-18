@@ -14,24 +14,29 @@ from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
 
 from app.routers import books, reviews
 from app.celery_tasks.worker_service import router
-from app.kafka_conf.kafka_file import producer
+from app.kafka_conf.producer import get_producer
 from app.open_telemetry import setup_tracing
 from app.database import engine
+from app.kafka_conf.consumer import AnalyticsWorker
 from app.logging import logger
+from app.routers.author_service import router as author_router
 
 
 setup_tracing("book-service")
 
-background_service = books.BackgroundService()
-
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    asyncio.create_task(background_service.cache_listener())
-    prod = await producer()
-    await prod.start()
+    background_service = books.BackgroundService()
+    analytics_worker = AnalyticsWorker()
+    task = asyncio.create_task(background_service.cache_listener())
+    producer = await get_producer()
+    await producer.start()
+    task1 = asyncio.create_task(analytics_worker.book_view())
     yield
-    await prod.stop()
+    task.cancel()
+    task1.cancel()
+    await producer.stop()
 
 
 app = FastAPI(lifespan=lifespan)
@@ -82,3 +87,5 @@ async def metrics_endpoint():
 app.include_router(books.router)
 app.include_router(reviews.reviews_router)
 app.include_router(router)
+app.include_router(author_router)
+

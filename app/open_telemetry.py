@@ -25,7 +25,7 @@ def setup_tracing(service_name: str):
     trace.set_tracer_provider(tracer_provider)
 
     jaeger_exporter = JaegerExporter(
-        agent_host_name="jaeger-agent.monitoring.svc.cluster.local",
+        agent_host_name="jaeger",
         agent_port=6831,
     )
 
