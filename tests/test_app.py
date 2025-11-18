@@ -15,8 +15,8 @@ class BookService:
     def __init__(self):
         self.repo = BookRepository()
 
-    def get_book(self, id: int, session):
-        return self.repo.get_by_id(id, session=session)
+    async def get_book(self, id: int, session):
+        return await self.repo.get_by_id(id, session=session)
 
 
 @pytest.mark.asyncio
