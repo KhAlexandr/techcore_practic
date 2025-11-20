@@ -107,3 +107,7 @@ static/
 media/
 
 logs
+.DS_Store
+grafana/.DS_Store
+
+workspace.xml
