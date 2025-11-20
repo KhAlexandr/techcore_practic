@@ -1,19 +1,18 @@
-from unittest.mock import patch, AsyncMock
+from unittest.mock import AsyncMock, patch
 
 import pytest
-
 from sqlalchemy import create_engine
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 from testcontainers.postgres import PostgresContainer
 
-from app.database import Base
 from app.books.models import Book
+from app.database import Base
 
 
 @pytest.fixture(autouse=True)
 def mock_kafka():
-    with patch('app.kafka_conf.producer.AIOKafkaProducer') as mock_producer:
+    with patch("app.kafka_conf.producer.AIOKafkaProducer") as mock_producer:
         mock_instance = AsyncMock()
         mock_producer.return_value = mock_instance
         mock_instance.start = AsyncMock()

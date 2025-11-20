@@ -2,12 +2,10 @@ import asyncio
 
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.mongo_database import mongo_client
 from app.routers.books import BookRepository, get_db_session
-
-from sqlalchemy.ext.asyncio import AsyncSession
-
 
 book_repo = BookRepository()
 

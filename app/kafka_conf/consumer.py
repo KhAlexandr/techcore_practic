@@ -1,14 +1,12 @@
-from aiokafka import AIOKafkaConsumer
-
 import json
 from datetime import datetime
 
+from aiokafka import AIOKafkaConsumer
 from opentelemetry.instrumentation.aiokafka import AIOKafkaInstrumentor
 from opentelemetry.instrumentation.pymongo import PymongoInstrumentor
 
 from app.mongo_database import mongo_client
 from app.open_telemetry import setup_tracing
-
 
 setup_tracing("analytics_worker")
 
@@ -21,11 +19,11 @@ PymongoInstrumentor().instrument()
 class AnalyticsWorker:
     def __init__(self):
         self.consumer = AIOKafkaConsumer(
-            'book_views',  # топик сразу здесь
-            bootstrap_servers='kafka:9092',
-            group_id='analytics',
-            auto_offset_reset='earliest',
-            enable_auto_commit=False
+            "book_views",
+            bootstrap_servers="kafka:9092",
+            group_id="analytics",
+            auto_offset_reset="earliest",
+            enable_auto_commit=False,
         )
         self.connection = mongo_client.analytics.book_views
 
@@ -42,7 +40,7 @@ class AnalyticsWorker:
                     "topic": msg.topic,
                     "partition": msg.partition,
                     "offset": msg.offset,
-                    "timestamp": datetime.now()
+                    "timestamp": datetime.now(),
                 }
                 await self.connection.insert_one(data)
                 print("Загружен в монго")

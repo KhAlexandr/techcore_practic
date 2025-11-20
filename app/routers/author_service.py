@@ -1,19 +1,15 @@
-import httpx
-
 import asyncio
 
 import backoff
-
+import httpx
+from aiocircuitbreaker import CircuitBreakerError, circuit
 from fastapi import APIRouter, Depends
-
-from aiocircuitbreaker import circuit, CircuitBreakerError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.authors.models import Author
 from app.authors.schemas import AuthorScheme
 from app.database import get_db_session
 from app.redis_database import redis_client
-
 
 semaphore = asyncio.Semaphore(5)
 
@@ -48,16 +44,16 @@ class AuthorService:
             return author["name"]
         except CircuitBreakerError:
             return "Default Author"
-        except Exception as e:
+        except Exception:
             return "Default Author"
 
     @circuit(failure_threshold=5)
-    @backoff.on_exception(backoff.expo, (httpx.RequestError, asyncio.TimeoutError),
-                          max_tries=3)
+    @backoff.on_exception(
+        backoff.expo, (httpx.RequestError, asyncio.TimeoutError), max_tries=3
+    )
     async def get_wait_for(self):
         response = await asyncio.wait_for(
-            self.client.get("https://httpbin.org/delay/4"),
-            timeout=1.0
+            self.client.get("https://httpbin.org/delay/4"), timeout=1.0
         )
         return response.json()
 
@@ -71,9 +67,9 @@ class AuthorService:
 
 @router.post("")
 async def create_author(
-        author: AuthorScheme,
-        session: AsyncSession = Depends(get_db_session),
-        author_service: AuthorService = Depends(AuthorService)
+    author: AuthorScheme,
+    session: AsyncSession = Depends(get_db_session),
+    author_service: AuthorService = Depends(AuthorService),
 ):
     new_autor = await author_service.create_author(author, session)
     return new_autor

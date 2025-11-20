@@ -1,6 +1,6 @@
-from motor.motor_asyncio import AsyncIOMotorClient
-
 import asyncio
+
+from motor.motor_asyncio import AsyncIOMotorClient
 
 mongo_client = AsyncIOMotorClient("mongodb://admin:password@mongo:27017/admin")
 

@@ -1,6 +1,5 @@
 import faust
 
-
 app = faust.App(
     "my-streaming-up",
     broker="kafka://kafka:9092",

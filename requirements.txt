@@ -135,3 +135,6 @@ zipp==3.23.0
 structlog
 deprecated
 aiocircuitbreaker
+isort
+flake8
+pre-commit

@@ -1,0 +1,22 @@
+[flake8]
+max-line-length = 88
+extend-ignore = E203, W503
+exclude =
+    .git,
+    __pycache__,
+    build,
+    dist,
+    migrations,
+    venv,
+    env,
+    .env,
+    alembic
+
+filename = *.py
+
+per-file-ignores =
+    */admin.py:F401,
+    */models.py:F401,
+    */tests.py:F401,
+    */views.py:F401,
+    settings.py:E501
