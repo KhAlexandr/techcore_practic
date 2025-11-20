@@ -1,14 +1,12 @@
 import pytest
-from httpx import AsyncClient, ASGITransport
-import asyncio
-
 from fastapi.testclient import TestClient
-from sqlalchemy import create_engine, text
-from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine, AsyncSession
+from httpx import ASGITransport, AsyncClient
+from sqlalchemy import text
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
 from app.books.models import Book
-from app.routers.books import BookRepository, get_db_session
 from app.main import app
+from app.routers.books import BookRepository, get_db_session
 
 
 class BookService:
@@ -24,7 +22,7 @@ async def test_get_book(mocker):
     service = BookService()
     mock_session = mocker.Mock()
 
-    mock_get = mocker.patch.object(
+    mocker.patch.object(
         service.repo, "get_by_id", return_value=Book(id=1, title="Test", year=2025)
     )
     result = await service.get_book(1, mock_session)
@@ -87,7 +85,7 @@ async def test_e2e_real_db_async(postgres_container):
         )
         await conn.execute(
             text(
-                "INSERT INTO authors (id, first_name, last_name, age) VALUES (1, 'Test', 'Author', 30)"
+                "INSERT INTO authors (id, first_name, last_name, age) VALUES (1, 'Test', 'Author', 30)"  # noqa
             )
         )
 
@@ -101,7 +99,7 @@ async def test_e2e_real_db_async(postgres_container):
         response = await ac.get("/api/books/")
         assert response.status_code == 200
         response_create = await ac.post(
-            "/api/books/",
-            json={"title": "Bio", "year": 5, "author_id": 1})
+            "/api/books/", json={"title": "Bio", "year": 5, "author_id": 1}
+        )
         assert response_create.status_code == 201
     app.dependency_overrides.clear()

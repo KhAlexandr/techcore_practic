@@ -1,16 +1,11 @@
 import asyncio
+import json
 
 import aiofiles
 
-import json
-
 
 async def write_json():
-    new_dict = {
-        "Name": "File",
-        "Age": 18,
-        "Country": 'Russia'
-    }
+    new_dict = {"Name": "File", "Age": 18, "Country": "Russia"}
     async with aiofiles.open("config.json", "w") as f:
         await f.write(json.dumps(new_dict))
 

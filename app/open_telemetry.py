@@ -1,16 +1,13 @@
-import os
 import sys
 
 from dotenv import load_dotenv
-
-from opentelemetry import trace, metrics
+from opentelemetry import metrics, trace
+from opentelemetry.exporter.jaeger.thrift import JaegerExporter
 from opentelemetry.exporter.prometheus import PrometheusMetricReader
 from opentelemetry.sdk.metrics import MeterProvider
+from opentelemetry.sdk.resources import Resource
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.exporter.jaeger.thrift import JaegerExporter
-from opentelemetry.sdk.resources import Resource
-
 
 load_dotenv()
 

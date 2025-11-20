@@ -6,7 +6,7 @@ import aiohttp
 async def get_httpx():
 
     async with aiohttp.ClientSession() as session:
-        response = await session.get("https://python.org")
+        await session.get("https://python.org")
 
 
 async def main():

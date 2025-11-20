@@ -1,22 +1,18 @@
-from fastapi import FastAPI, Depends, Response
-import httpx
 import asyncio
 
+import httpx
+import pybreaker
+from fastapi import Depends, FastAPI, Response
+from opentelemetry import trace
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
-from opentelemetry import trace
-
-from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
-
-import pybreaker
+from prometheus_client import CONTENT_TYPE_LATEST, generate_latest
 
 from app.auth import verify_user
 from app.books.schemas import BookScheme
-from app.open_telemetry import setup_tracing
-from app.open_telemetry import setup_metrics
-from app.logging import logger
 from app.breaker import detail_breaker
-
+from app.logging import logger
+from app.open_telemetry import setup_metrics, setup_tracing
 
 setup_tracing("gateway-service")
 setup_metrics("gateway-service")
@@ -114,7 +110,7 @@ async def create_book(book: BookScheme):
     log.info("gateway_request_started")
     async with httpx.AsyncClient() as client:
         response = await client.post(
-            f"http://api:80/api/books/",
+            "http://api:80/api/books/",
             json=book.model_dump(),
             headers={
                 "Content-Type": "application/json",

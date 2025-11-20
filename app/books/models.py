@@ -13,7 +13,9 @@ class Book(Base):
 
     author_id: Mapped[int] = mapped_column(ForeignKey("authors.id"))
 
-    author: Mapped["Author"] = relationship("Author", back_populates="books")
+    author: Mapped["Author"] = relationship(  # noqa: F821
+        "Author", back_populates="books"
+    )
 
     def to_dict(self):
         return {

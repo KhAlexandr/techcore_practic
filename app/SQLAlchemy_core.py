@@ -1,12 +1,12 @@
-from sqlalchemy import text
 from database import session_maker
+from sqlalchemy import text
 
 
 async def get_books_report():
     async with session_maker() as session:
         sql = text(
             """
-            SELECT 
+            SELECT
                 a.first_name || ' ' || a.last_name as author_name,
                 COUNT(b.id) as book_count,
                 AVG(b.year) as avg_year,

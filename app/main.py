@@ -1,26 +1,21 @@
 import asyncio
-
-import datetime
-import logging
-
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, Request, Response
 
+from fastapi import FastAPI, Request, Response
+from opentelemetry.instrumentation.aiokafka import AIOKafkaInstrumentor
+from opentelemetry.instrumentation.celery import CeleryInstrumentor
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
-from opentelemetry.instrumentation.celery import CeleryInstrumentor
-from opentelemetry.instrumentation.aiokafka import AIOKafkaInstrumentor
-from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
+from prometheus_client import CONTENT_TYPE_LATEST, generate_latest
 
-from app.routers import books, reviews
 from app.celery_tasks.worker_service import router
-from app.kafka_conf.producer import get_producer
-from app.open_telemetry import setup_tracing
 from app.database import engine
 from app.kafka_conf.consumer import AnalyticsWorker
+from app.kafka_conf.producer import get_producer
 from app.logging import logger
+from app.open_telemetry import setup_tracing
+from app.routers import books, reviews
 from app.routers.author_service import router as author_router
-
 
 setup_tracing("book-service")
 
@@ -88,4 +83,3 @@ app.include_router(books.router)
 app.include_router(reviews.reviews_router)
 app.include_router(router)
 app.include_router(author_router)
-

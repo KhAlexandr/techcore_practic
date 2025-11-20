@@ -1,26 +1,21 @@
 import asyncio
-from typing import AsyncGenerator
-
 import json
 
-from fastapi import APIRouter, HTTPException, Depends, status, BackgroundTasks
-
-from sqlalchemy import select
-from sqlalchemy.orm import selectinload
-from sqlalchemy.ext.asyncio import AsyncSession
-
+from fastapi import APIRouter, Depends, HTTPException, status
 from opentelemetry import metrics
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
 
 from app.authors.models import Author
-from app.books.schemas import BookScheme
-from app.books.models import Book
-from app.database import get_db_session
 from app.authors.schemas import AuthorScheme
-from app.redis_database import redis_client
+from app.books.models import Book
+from app.books.schemas import BookScheme
+from app.database import get_db_session
 from app.kafka_conf.producer import view_book
-from app.open_telemetry import setup_metrics
 from app.logging import logger
-
+from app.open_telemetry import setup_metrics
+from app.redis_database import redis_client
 
 meter_provider = setup_metrics("book-service")
 
@@ -76,7 +71,11 @@ class BookRepository:
         return [book.to_dict() for book in books]
 
     @staticmethod
-    async def update_book(book_id: int, updated_book: BookScheme, session: AsyncSession,):
+    async def update_book(
+        book_id: int,
+        updated_book: BookScheme,
+        session: AsyncSession,
+    ):
         async with redis_client.lock(f"inventory_lock:{book_id}", timeout=10):
             result = await session.execute(
                 select(Book)
@@ -120,8 +119,8 @@ class BookRepository:
 
 @router.get("/")
 async def get_all_books(
-        session: AsyncSession = Depends(get_db_session),
-        book_repo: BookRepository = Depends(BookRepository)
+    session: AsyncSession = Depends(get_db_session),
+    book_repo: BookRepository = Depends(BookRepository),
 ):
     books = await book_repo.get_all_books(session=session)
     return {"books": books}
@@ -131,13 +130,11 @@ async def get_all_books(
 async def create_book(
     book: BookScheme,
     session: AsyncSession = Depends(get_db_session),
-    book_repo: BookRepository = Depends(BookRepository)
+    book_repo: BookRepository = Depends(BookRepository),
 ):
     log = logger.bind(operation="create_book", author_id=book.author_id)
     log.info("book_creation_started", title=book.title)
-    new_book = await book_repo.create(
-        book=book, session=session
-    )
+    new_book = await book_repo.create(book=book, session=session)
     log.info("book_created", book_id=new_book.id, title=new_book.title)
     book_counter.add(1, {"operation": "create", "author_id": str(book.author_id)})
     book_counter.add(1, {"operation": "create", "author_id": str(book.author_id)})
@@ -154,7 +151,7 @@ async def create_book(
 async def get_book(
     book_id: int,
     session: AsyncSession = Depends(get_db_session),
-    book_repo: BookRepository = Depends(BookRepository)
+    book_repo: BookRepository = Depends(BookRepository),
 ):
     book = await book_repo.get_by_id(book_id, session=session)
     if book is None:
@@ -168,12 +165,10 @@ async def update_book(
     book_id: int,
     book: BookScheme,
     session: AsyncSession = Depends(get_db_session),
-    book_repo: BookRepository = Depends(BookRepository)
+    book_repo: BookRepository = Depends(BookRepository),
 ):
     new_book = await book_repo.update_book(
-        book_id=book_id,
-        updated_book=book,
-        session=session
+        book_id=book_id, updated_book=book, session=session
     )
     if not new_book:
         raise HTTPException(status_code=404, detail="Book not found")
@@ -185,7 +180,7 @@ async def create_author_and_book(
     autor: AuthorScheme,
     book: BookScheme,
     session: AsyncSession = Depends(get_db_session),
-    book_repo: BookRepository = Depends(BookRepository)
+    book_repo: BookRepository = Depends(BookRepository),
 ):
     new_author_and_book = await book_repo.create_author_and_book(
         book=book,
